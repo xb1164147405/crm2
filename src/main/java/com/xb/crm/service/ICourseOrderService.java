@@ -13,4 +13,14 @@ import com.xb.crm.model.PageResult;
 public interface ICourseOrderService {
 
     public PageResult<CourseOrder> findPageResult(CourseOrder condition,int page,int pageSize);
+
+    /**
+     * 保存订单
+     * @param order
+     */
+    public void save(CourseOrder order);
+
+    public CourseOrder findByOrderId(String order_id);
+
+    public void deleteByOrderId(String order_id);
 }

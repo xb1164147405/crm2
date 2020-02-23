@@ -2,12 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xb.crm.mapper.CourseOrderMapper">
-    
+
     <select id="findCountByMap" parameterType="map" resultType="int">
         select count(*) from t_course_order;
     </select>
 
     <select id="findListByMap" parameterType="map" resultType="courseOrder">
-        select * from t_course_order;
+        select * from t_course_order order by order_date desc limit #{start},#{pageSize};
     </select>
+
+    <insert id="insertOrder" parameterType="courseOrder">
+        INSERT INTO t_course_order
+          (uuid,order_id,name,wechat_no,wechat_mark,
+           qq_no,tel,course_name,course_price,order_date,
+           update_datetime,remark)
+        VALUES
+          (UUID(), UUID(), #{name}, #{wechat_no},#{wechat_mark},
+          #{qq_no}, #{tel}, #{course_name},
+          #{course_price},#{order_date},
+          CURRENT_TIMESTAMP(),#{remark});
+
+    </insert>
+
+    <select id="findByOrderId" parameterType="string" resultType="courseOrder">
+        select * from t_course_order where order_id = #{order_id};
+    </select>
+
+    <delete id="deleteByOrderId" parameterType="string">
+        delete from t_course_order where order_id = #{order_id};
+    </delete>
 </mapper>

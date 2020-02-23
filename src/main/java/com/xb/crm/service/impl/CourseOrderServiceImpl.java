@@ -29,6 +29,9 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
         PageResult<CourseOrder> result = new PageResult<>();
         result.setCode(0);
         Map<String,Object> params = new HashMap<>();
+        //select * from t_course_order limit 0,10;
+        params.put("start",(page-1) * pageSize);
+        params.put("pageSize",pageSize);
         //获取总记录数据
         int totalCount = courseOrderMapper.findCountByMap(params);
         result.setCount(totalCount);
@@ -36,5 +39,20 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
         List<CourseOrder> list = courseOrderMapper.findListByMap(params);
         result.setData(list);
         return result;
+    }
+
+    @Override
+    public void save(CourseOrder order) {
+        courseOrderMapper.insertOrder(order);
+    }
+
+    @Override
+    public CourseOrder findByOrderId(String order_id) {
+        return courseOrderMapper.findByOrderId(order_id);
+    }
+
+    @Override
+    public void deleteByOrderId(String order_id) {
+        courseOrderMapper.deleteByOrderId(order_id);
     }
 }
