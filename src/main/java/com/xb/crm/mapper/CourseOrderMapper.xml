@@ -2,13 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xb.crm.mapper.CourseOrderMapper">
+    <!--公告sql片段-->
+    <sql id="search_where">
+        <where>
+            <if test="condition.wechat_no != null and condition.wechat_no != ''">
+                wechat_no like '%${condition.wechat_no}%'
+            </if>
+            <if test="condition.wechat_mark != null and condition.wechat_mark != ''">
+                wechat_mark like '%${condition.wechat_mark}%'
+            </if>
+            <if test="condition.name != null and condition.name != ''">
+                name like '%${condition.name}%'
+            </if>
+        </where>
+    </sql>
 
     <select id="findCountByMap" parameterType="map" resultType="int">
-        select count(*) from t_course_order;
+        select count(*) from t_course_order
+        <include refid="search_where"></include>
     </select>
 
     <select id="findListByMap" parameterType="map" resultType="courseOrder">
-        select * from t_course_order order by order_date desc limit #{start},#{pageSize};
+        select * from t_course_order
+        <include refid="search_where"></include>
+        order by order_date desc limit #{start},#{pageSize};
     </select>
 
     <insert id="insertOrder" parameterType="courseOrder">
@@ -21,7 +38,6 @@
           #{qq_no}, #{tel}, #{course_name},
           #{course_price},#{order_date},
           CURRENT_TIMESTAMP(),#{remark});
-
     </insert>
 
     <select id="findByOrderId" parameterType="string" resultType="courseOrder">
@@ -31,4 +47,14 @@
     <delete id="deleteByOrderId" parameterType="string">
         delete from t_course_order where order_id = #{order_id};
     </delete>
+
+    <update id="updateOrder" parameterType="courseOrder">
+        UPDATE t_course_order SET name = #{name},wechat_no = #{wechat_no},
+          wechat_mark = #{wechat_mark},qq_no = #{qq_no},
+          tel = #{tel},course_name = #{course_name},
+          course_price = #{course_price},order_date = #{order_date},
+          remark = #{remark}
+       WHERE
+          order_id = #{order_id}
+    </update>
 </mapper>

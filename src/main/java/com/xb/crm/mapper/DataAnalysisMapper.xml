@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xb.crm.mapper.DataAnalysisMapper">
+
+    <select id="getMonthIncomes" resultType="monthIncome">
+      SELECT
+      LEFT(order_date,7) as  date,
+      COUNT(*) as  total,
+      SUM(convert(course_price,decimal(18,2))) as income
+      FROM t_course_order
+      GROUP BY LEFT(order_date,7);
+
+    </select>
+</mapper>

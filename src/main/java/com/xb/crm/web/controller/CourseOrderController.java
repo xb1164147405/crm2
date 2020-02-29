@@ -7,6 +7,7 @@ import com.xb.crm.service.ICourseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,6 +35,12 @@ public class CourseOrderController {
         return "courseorder/add";
     }
 
+    @RequestMapping("/edit")
+    public String edit(Model model,String order_id){
+        CourseOrder order = courseOrderService.findByOrderId(order_id);
+        model.addAttribute("order",order);
+        return "courseorder/edit";
+    }
 
     @RequestMapping("/detail")
     public String detail(Model model, String order_id){
@@ -58,13 +65,24 @@ public class CourseOrderController {
     @RequestMapping("/save")
     @ResponseBody
     public CURDResult save(CourseOrder order){
+        //TODO 参数校验
         CURDResult result = new CURDResult();
-        try {
-            courseOrderService.save(order);
-        } catch (Exception e) {
-            result.setSuccess(0);
-            result.setMsg("数据插入失败" + e);
+        if (StringUtils.isEmpty(order.getOrder_id())){
+            try {
+                courseOrderService.save(order);
+            } catch (Exception e) {
+                result.setSuccess(0);
+                result.setMsg("数据插入失败" + e);
+            }
+        }else {
+            try {
+                courseOrderService.updateOrder(order);
+            } catch (Exception e) {
+                result.setSuccess(0);
+                result.setMsg("数据更新失败：" + e);
+            }
         }
+
         return result;
     }
     /**
@@ -75,8 +93,8 @@ public class CourseOrderController {
      */
     @RequestMapping("/listJson")
     @ResponseBody
-    public PageResult<CourseOrder> listJson(int page,int limit){
-        PageResult<CourseOrder> result = courseOrderService.findPageResult(null,page,limit);
+    public PageResult<CourseOrder> listJson(CourseOrder condition,int page,int limit){
+        PageResult<CourseOrder> result = courseOrderService.findPageResult(condition,page,limit);
 
         return result;
     }

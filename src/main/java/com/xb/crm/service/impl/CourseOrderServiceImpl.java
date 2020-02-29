@@ -29,6 +29,8 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
         PageResult<CourseOrder> result = new PageResult<>();
         result.setCode(0);
         Map<String,Object> params = new HashMap<>();
+        //模糊查询条件添加
+        params.put("condition",condition);
         //select * from t_course_order limit 0,10;
         params.put("start",(page-1) * pageSize);
         params.put("pageSize",pageSize);
@@ -54,5 +56,10 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
     @Override
     public void deleteByOrderId(String order_id) {
         courseOrderMapper.deleteByOrderId(order_id);
+    }
+
+    @Override
+    public void updateOrder(CourseOrder order) {
+        courseOrderMapper.updateOrder(order);
     }
 }
