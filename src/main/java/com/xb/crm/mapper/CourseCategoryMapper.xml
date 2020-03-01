@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xb.crm.mapper.CourseCategoryMapper">
+
+    <!--查找所有的课程类别-->
+    <select id="findAllCourseCategory" resultType="courseCategory">
+        select * from t_course_category;
+    </select>
+</mapper>

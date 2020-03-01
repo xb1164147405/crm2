@@ -1,8 +1,10 @@
 package com.xb.crm.web.controller;
 
 import com.xb.crm.model.CURDResult;
+import com.xb.crm.model.CourseCategory;
 import com.xb.crm.model.CourseOrder;
 import com.xb.crm.model.PageResult;
+import com.xb.crm.service.ICourseCategoryService;
 import com.xb.crm.service.ICourseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 
 /**
@@ -25,20 +29,28 @@ public class CourseOrderController {
     @Autowired
     private ICourseOrderService courseOrderService;
 
+    @Autowired
+    private ICourseCategoryService courseCategoryService;
+
     @RequestMapping("/list")
     public String list(){
         return "courseorder/list";
     }
 
     @RequestMapping("/add")
-    public String add(){
+    public String add(Model model){
+        //读取数据库中的课程类别数据供页面使用
+        List<CourseCategory> allCourseCategory = courseCategoryService.findAllCourseCategory();
+        model.addAttribute("courseCategoryList",allCourseCategory);
         return "courseorder/add";
     }
 
     @RequestMapping("/edit")
     public String edit(Model model,String order_id){
         CourseOrder order = courseOrderService.findByOrderId(order_id);
+        List<CourseCategory> allCourseCategory = courseCategoryService.findAllCourseCategory();
         model.addAttribute("order",order);
+        model.addAttribute("courseCategoryList",allCourseCategory);
         return "courseorder/edit";
     }
 

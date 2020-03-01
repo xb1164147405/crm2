@@ -56,9 +56,9 @@
             <div class="layui-input-inline">
                     <select name="course_name" id="course_name" lay-verify="required" lay-search="">
                         <option value="">直接选择或搜索选择</option>
-                        <option value="MySQL删库跑路教程">MySQL删库跑路教程</option>
-                        <option value="SpringBoot从入门到放弃">SpringBoot从入门到放弃</option>
-                        <option value="玩转JavaWeb">玩转JavaWeb</option>
+                        <option th:each="category : ${courseCategoryList}"
+                                th:value="${category.course_name}"
+                                th:text="${category.course_name}"></option>
                     </select>
             </div>
         </div>
