@@ -18,7 +18,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers()
                 .frameOptions().sameOrigin()
                 .httpStrictTransportSecurity().disable();
-
+        //允许ajax的post请求
+        http.csrf().disable();
         http .authorizeRequests()
                 /*.antMatchers("/css/**", "/index").permitAll()*/
                 /*访问user下的路径需要USER角色的权限*/
@@ -37,7 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 /*设置自己的登录页面*/
-//                .loginPage("/login")
+                .loginPage("/login")
+                /*登录成功后跳转至指定页面*/
+                .successForwardUrl("/index")
                 /*设置自己的登录错误页面*/
                 .failureUrl("/login-error");
     }

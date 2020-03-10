@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<br />
+<table class="layui-hide" id="permissionTable" lay-filter="permissionTable"></table>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+    </div>
+</script>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+
+<script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+<script>
+    var $,table;
+    layui.use('table', function () {
+        table = layui.table;
+        $ = layui.jquery;
+        //温馨提示：默认由前端自动合计当前行数据。从 layui 2.5.6 开始： 若接口直接返回了合计行数据，则优先读取接口合计行数据。
+        //详见：https://www.layui.com/doc/modules/table.html#totalRow
+        table.render({
+            elem: '#permissionTable'
+            , url: '/permission/listJson'
+            , toolbar: '#toolbarDemo'
+            , title: '权限列表数据'
+            , totalRow: true
+            /*两个中阔号要换行不然thymeleaf和layui的解析会发生冲突导致报错*/
+            , cols: [
+                [
+                    {type: 'checkbox', fixed: 'left'}
+
+                //edit: 'text' 为可编辑状态
+                    , {field: 'id', title: 'ID', width: 120}
+                    , {field: 'name', title: '功能权限', width: 120}
+                    , {field: 'path', title: '路径', width: 200}
+                    , {field: 'authorization_flag', title: '授权标识', width: 200}
+                    , {field: 'parent_id', title: '父ID', width: 120}
+                    , {field: 'z_index', title: '排序', width: 120}
+                    , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150}
+                ]
+            ]
+            // , page: true
+            , id: 'permissionTable'
+        });
+
+        //工具栏事件
+        table.on('toolbar(permissionTable)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：' + data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选' : '未全选')
+                    break;
+                case 'add':
+                    // layer.msg('弹出添加页面')
+                    parent.layer.open({
+                        type: 2,//2跳转到页面
+                        offset: 'auto',
+                        title: '添加权限',
+                        content: '/permission/add',
+                        area: ['600px', '500px'],
+                        btn: '关闭全部',
+                        btnAlign: 'c',//表示按钮居中显示
+                        yes:function () {
+                            parent.layer.closeAll();
+                        }
+                    })
+                    break;
+            }
+            ;
+        });
+
+        //监听行双击事件
+        table.on('rowDouble(permissionTable)', function(obj){
+            //obj 同上
+            var orderId = obj.data.order_id;
+            parent.layer.open({
+                type: 2,//2跳转到页面
+                offset: 'auto',
+                title: '课程订单详情',
+                content: '/courseorder/detail?order_id=' + orderId,
+                area: ['1000px', '600px'],
+                btn: '关闭全部',
+                btnAlign: 'c',//表示按钮居中显示
+                yes:function () {
+                    parent.layer.closeAll();
+                }
+            })
+
+        });
+
+        //监听工具条
+        table.on('tool(permissionTable)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var orderId = obj.data.order_id; //获得当前行数据的order_id
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+
+            if(layEvent === 'del'){ //删除
+                layer.confirm('真的删除行么', function(index){
+                    obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                    layer.close(index);
+                    //向服务端发送删除指令
+                    $.get("/courseorder/delete",{order_id:orderId},function (responseData) {
+                        if (responseData.success == 1){
+                            layer.msg("删除成功");
+                        }else {
+                            layer.msg("删除失败：" + responseData.msg)
+                        }
+                    })
+                });
+            } else if(layEvent === 'edit'){ //编辑
+                /*弹出编辑页面*/
+                parent.layer.open({
+                    type: 2,//2跳转到页面
+                    offset: 'auto',
+                    title: '编辑课程订单',
+                    content: '/courseorder/edit?order_id=' + orderId,
+                    area: ['1000px', '600px'],
+                    btn: '关闭全部',
+                    btnAlign: 'c',//表示按钮居中显示
+                    yes:function () {
+                        parent.layer.closeAll();
+                    }
+                })
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>

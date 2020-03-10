@@ -16,13 +16,13 @@ import java.util.List;
  * @history: 1.2020/2/29 created by xiongbiao
  */
 @Controller
-@RequestMapping("/dataanalysis")
+@RequestMapping("/orderreportform")
 public class DataAnalysisController {
 
     @Autowired
     private IDataAnalysisService dataAnalysisService;
 
-    @RequestMapping("/income")
+    @RequestMapping("/list")
     public String income(){
         return "dataanalysis/income";
     }

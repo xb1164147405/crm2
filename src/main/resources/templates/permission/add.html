@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+</head>
+<body>
+
+<form class="layui-form" action="" id="addPermission">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">父功能节点</label>
+            <div class="layui-input-inline">
+                <select name="parent_id" lay-verify="required" lay-search="">
+                    <option value="">直接选择</option>
+                    <option value="0">根节点</option>
+                    <option th:each="parentNode :${allParentNode}"
+                            th:text="${parentNode.name}"
+                            th:value="${parentNode.id}"></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">访问路径</label>
+            <div class="layui-input-inline">
+                <input type="text" placeholder="路径格式：/**/**" name="path" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">是否生成菜单</label>
+            <div class="layui-input-inline">
+                    <select name="is_menu" lay-verify="required" lay-search="">
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">权限标识</label>
+            <div class="layui-input-inline">
+                <select name="authorization_flag" lay-verify="required" lay-search="">
+                    <option value="READ">READ</option>
+                    <option value="ADD">ADD</option>
+                    <option value="EDIT">EDIT</option>
+                    <option value="SAVE">SAVE</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="button" onclick="doSave();" class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+
+</form>
+
+
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    //声明变量通过layui获取对象 才能使用jquery
+    var $,layer;
+    layui.use(['form','laydate'], function(){
+        var laydate = layui.laydate;
+        $ = layui.jquery;
+        layer = layui.layer;
+        //日期
+        laydate.render({
+            elem: '#order_date'
+        });
+    })
+    
+    function doSave() {
+
+        var requestData = $("#addPermission").serialize();//获取表单中的值
+        $.post("/permission/save",requestData,function (responseData) {
+            console.log(responseData);
+            if (responseData.success == 1){
+                layer.alert("添加成功",{yes:function () {
+                        //点击确定后要发生的事件 即点击确定后关闭添加窗口
+                        //TODO 虽然关闭但是页面没有马上 刷新 更新保存的数据
+                        //
+                        // location.href("/permission/list")
+                        // table.reload('permissionTable');
+                        // setTimeout("location.href='/permission/list'");
+                        parent.layer.closeAll();
+
+                    }})
+            } else {
+                layer.alert("添加失败:"+responseData.msg,{yes:function () {
+                        parent.layer.closeAll();
+                    }})
+            }
+        });
+
+    }
+</script>
+
+</body>
+</html>

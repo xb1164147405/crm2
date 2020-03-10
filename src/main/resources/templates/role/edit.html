@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+    <link rel="stylesheet" th:href="@{/zTree/css/zTreeStyle/zTreeStyle.css}" type="text/css">
+    <script type="text/javascript" th:src="@{/zTree/js/jquery-1.4.4.min.js}"></script>
+    <script type="text/javascript" th:src="@{/zTree/js/jquery.ztree.core.js}"></script>
+    <script type="text/javascript" th:src="@{/zTree/js/jquery.ztree.excheck.js}"></script>
+</head>
+<body>
+
+<form class="layui-form" action="" id="addRole">
+    <!--用于存储zTree选中的权限id-->
+    <input type="hidden" name="ids" id="ids" value="1,2,3">
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">角色名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">角色描述</label>
+            <div class="layui-input-inline">
+                <input type="text"  name="description" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">权限</label>
+            <div class="layui-input-inline">
+                <ul id="pmsTree" class="ztree"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="button" onclick="doSave();" class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+        </div>
+    </div>
+
+</form>
+
+
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    //声明变量通过layui获取对象 才能使用jquery
+    var layer;
+    layui.use(['form','laydate'], function(){
+
+        layer = layui.layer;
+
+    })
+    
+    function doSave() {
+        //获取选中的权限id，遍历，拼接成1,2,3的格式
+        //获取树对象
+        var treeObj = $.fn.zTree.getZTreeObj("pmsTree");
+        //获取树对象中被选中的节点数组
+        var nodes = treeObj.getCheckedNodes(true);//获取选中的结点数组
+
+        var idsArr = new Array();
+        for(var i=0;i<nodes.length;i++){
+            var node = nodes[i];
+            idsArr.push(node.id);
+        }
+
+        console.log(idsArr);
+        var ids = idsArr.join(',');
+        console.log(ids);
+        //把拼接好的权限ids数据赋值给hidden属性的标签
+        $("#ids").val(ids);
+        var requestData = $("#addRole").serialize();//获取表单中的值
+        $.post("/role/save",requestData,function (responseData) {
+            console.log(responseData);
+            if (responseData.success == 1){
+                layer.alert("添加成功",{yes:function () {
+
+                        //TODO 虽然关闭但是页面没有马上 刷新 更新保存的数据
+
+                        parent.layer.closeAll();
+
+                    }})
+            } else {
+                layer.alert("添加失败:"+responseData.msg,{yes:function () {
+                        parent.layer.closeAll();
+                    }})
+            }
+        });
+
+    }
+</script>
+<script>
+    <!--
+    var setting = {
+        check: {
+            enable: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+
+    //    var zNodes =[
+    //        { id:1, pId:0, name:"随意勾选 1", open:true},
+    //        { id:11, pId:1, name:"随意勾选 1-1", open:true},
+    //        { id:111, pId:11, name:"随意勾选 1-1-1"},
+    //        { id:112, pId:11, name:"随意勾选 1-1-2"},
+    //        { id:12, pId:1, name:"随意勾选 1-2", open:true},
+    //        { id:121, pId:12, name:"随意勾选 1-2-1"},
+    //        { id:122, pId:12, name:"随意勾选 1-2-2"},
+    //        { id:2, pId:0, name:"随意勾选 2", checked:true, open:true},
+    //        { id:21, pId:2, name:"随意勾选 2-1"},
+    //        { id:22, pId:2, name:"随意勾选 2-2", open:true},
+    //        { id:221, pId:22, name:"随意勾选 2-2-1", checked:true},
+    //        { id:222, pId:22, name:"随意勾选 2-2-2"},
+    //        { id:23, pId:2, name:"随意勾选 2-3"}
+    //    ];
+
+    $(document).ready(function(){
+
+        //访问接口数据
+        $.get("/permission/listJson",function (responseData) {
+            //把json数据转成json对象
+            var zNodes = responseData.data;
+
+            $.fn.zTree.init($("#pmsTree"), setting, zNodes);
+        });
+
+    });
+    //-->
+</script>
+
+</body>
+</html>

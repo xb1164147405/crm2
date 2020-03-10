@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @history: 1.2020/2/21 created by xiongbiao
  */
 @Controller
-@RequestMapping("/stuinfo")
+@RequestMapping("/student")
 public class StuInfoController {
 
     @RequestMapping("/list")

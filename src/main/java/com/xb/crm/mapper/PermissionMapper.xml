@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xb.crm.mapper.PermissionMapper">
+
+    <resultMap id="menusList" type="permission">
+        <result column="name" property="name"></result>
+        <collection property="subMenus" ofType="permission">
+            <result column="sub_name" property="name"></result>
+            <result column="sub_path" property="path"></result>
+        </collection>
+    </resultMap>
+    
+    <select id="findAllMenus" resultMap="menusList">
+        select  t1.name,
+                t2.id as sub_id,
+                t2.name as sub_name,
+                t2.path as sub_path,
+                t2.authorization_flag as sub_authorization_flag
+        from sys_permission t1
+        left join sys_permission t2
+        on t1.id = t2.parent_id
+        where t1.parent_id = 0 order by t1.z_index;
+    </select>
+
+    <select id="findAllPermission" resultType="permission">
+        select id,name,path,authorization_flag,parent_id,is_menu,z_index
+        from sys_permission
+        order by z_index,is_menu desc;
+    </select>
+
+    <select id="findAllParentNode" resultType="permission">
+        select id,name from sys_permission where is_menu = 1;
+    </select>
+
+    <select id="findMaxZIndex" resultType="int">
+        select max(z_index) from sys_permission;
+    </select>
+
+    <select id="findPermissionById" parameterType="int" resultType="permission">
+        select z_index from sys_permission where id = #{id};
+    </select>
+
+    <insert id="insert" parameterType="permission">
+        insert into sys_permission
+        (name,path,authorization_flag,parent_id,is_menu,z_index)
+        values(#{name},#{path},#{authorization_flag},#{parent_id},#{is_menu},#{z_index})
+    </insert>
+</mapper>
