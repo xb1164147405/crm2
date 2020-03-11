@@ -6,4 +6,12 @@
     <select id="findUserByUsername" parameterType="string" resultType="user">
         select * from t_user where username = #{username};
     </select>
+
+    <select id="findCountByMap" parameterType="map" resultType="int">
+        select count(*) from t_user;
+    </select>
+
+    <select id="findListByMap" parameterType="map" resultType="user">
+        select * from t_user limit #{start},#{pageSize};
+    </select>
 </mapper>

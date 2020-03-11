@@ -17,13 +17,14 @@
 
 <form class="layui-form" action="" id="addRole">
     <!--用于存储zTree选中的权限id-->
-    <input type="hidden" name="ids" id="ids" value="1,2,3">
+    <input type="hidden" name="ids" id="ids" th:value="${ids}">
 
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">角色名称</label>
             <div class="layui-input-inline">
-                <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input">
+                <input type="hidden" name="id" th:value="${role.id}">
+                <input type="text" name="name" th:value="${role.name}" lay-verify="required" autocomplete="off" class="layui-input">
             </div>
         </div>
 
@@ -33,7 +34,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">角色描述</label>
             <div class="layui-input-inline">
-                <input type="text"  name="description" autocomplete="off" class="layui-input">
+                <input type="text"  name="description" th:value="${role.description}" autocomplete="off" class="layui-input">
             </div>
         </div>
     </div>
@@ -89,7 +90,7 @@
         $.post("/role/save",requestData,function (responseData) {
             console.log(responseData);
             if (responseData.success == 1){
-                layer.alert("添加成功",{yes:function () {
+                layer.alert("修改成功",{yes:function () {
 
                         //TODO 虽然关闭但是页面没有马上 刷新 更新保存的数据
 
@@ -97,7 +98,7 @@
 
                     }})
             } else {
-                layer.alert("添加失败:"+responseData.msg,{yes:function () {
+                layer.alert("修改失败:"+responseData.msg,{yes:function () {
                         parent.layer.closeAll();
                     }})
             }
@@ -118,21 +119,6 @@
         }
     };
 
-    //    var zNodes =[
-    //        { id:1, pId:0, name:"随意勾选 1", open:true},
-    //        { id:11, pId:1, name:"随意勾选 1-1", open:true},
-    //        { id:111, pId:11, name:"随意勾选 1-1-1"},
-    //        { id:112, pId:11, name:"随意勾选 1-1-2"},
-    //        { id:12, pId:1, name:"随意勾选 1-2", open:true},
-    //        { id:121, pId:12, name:"随意勾选 1-2-1"},
-    //        { id:122, pId:12, name:"随意勾选 1-2-2"},
-    //        { id:2, pId:0, name:"随意勾选 2", checked:true, open:true},
-    //        { id:21, pId:2, name:"随意勾选 2-1"},
-    //        { id:22, pId:2, name:"随意勾选 2-2", open:true},
-    //        { id:221, pId:22, name:"随意勾选 2-2-1", checked:true},
-    //        { id:222, pId:22, name:"随意勾选 2-2-2"},
-    //        { id:23, pId:2, name:"随意勾选 2-3"}
-    //    ];
 
     $(document).ready(function(){
 
@@ -142,6 +128,18 @@
             var zNodes = responseData.data;
 
             $.fn.zTree.init($("#pmsTree"), setting, zNodes);
+
+            //通过id找到节点，并设置勾选
+            var pmsIds = $("#ids").val().split(",");
+            //获取zTree对象
+            var zTreeObj = $.fn.zTree.getZTreeObj("pmsTree");
+            for (var i = 0; i<pmsIds.length;i++){
+                var pmsId = pmsIds[i];
+                //通过id找到zTree对象对应的节点
+                var node = zTreeObj.getNodeByParam("id",pmsId);
+                //设置节点为勾选状态
+                zTreeObj.checkNode(node);
+            }
         });
 
     });

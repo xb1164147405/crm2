@@ -21,4 +21,14 @@ public interface RoleMapper {
 
 
     public void insertRolePermission(int roleId, int permissionId);
+
+    public Role findRoleByRoleId(int roleId);
+
+    public List<Integer> findPermissionIdByRoleId(int roleId);
+
+    public void deletePremissionByRoleId(int roleId);
+
+    public void updateRole(Role role);
+
+    public Role findRoleByRoleName(String name);
 }

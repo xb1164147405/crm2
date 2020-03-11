@@ -17,4 +17,8 @@ public interface IRoleService {
     public List<Role> findAllRoles();
 
     public CURDResult insert(Role role, String ids);
+
+    public Role findRoleByRoleId(int roleId);
+
+    public String findPermissionIdsByRoleId(int roleId);
 }

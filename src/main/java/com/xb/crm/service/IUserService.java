@@ -1,5 +1,6 @@
 package com.xb.crm.service;
 
+import com.xb.crm.model.PageResult;
 import com.xb.crm.model.User;
 
 /**
@@ -12,4 +13,6 @@ import com.xb.crm.model.User;
 public interface IUserService {
 
     public User findUserByUsername(String username);
+
+    public PageResult<User> findPageResult(User condition, int page, int pageSize);
 }

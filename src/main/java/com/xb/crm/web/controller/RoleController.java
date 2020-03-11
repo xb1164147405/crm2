@@ -41,7 +41,10 @@ public class RoleController {
     }
 
     @RequestMapping("edit")
-    public String edit(int roleId){
+    public String edit(Model model,int roleId){
+        Role role = roleService.findRoleByRoleId(roleId);
+        model.addAttribute("role",role);
+        model.addAttribute("ids",roleService.findPermissionIdsByRoleId(roleId));
         return "role/edit";
     }
 
@@ -50,7 +53,7 @@ public class RoleController {
     public CURDResult save(Role role,String ids){
         //TODO 参数校验
         CURDResult result = new CURDResult();
-        roleService.insert(role,ids);
+        result = roleService.insert(role, ids);
         return result;
     }
 

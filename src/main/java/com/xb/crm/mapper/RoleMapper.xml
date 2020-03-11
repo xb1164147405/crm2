@@ -15,4 +15,24 @@
     <insert id="insertRolePermission" parameterType="int">
         insert into sys_role_permission(role_id,permission_id) values (#{roleId},#{permissionId});
     </insert>
+
+    <select id="findRoleByRoleId" parameterType="int" resultType="role">
+        select * from sys_role where id = #{roleId};
+    </select>
+
+    <select id="findPermissionIdByRoleId" parameterType="int" resultType="int">
+        select permission_id from sys_role_permission where role_id = #{roleId};
+    </select>
+
+    <delete id="deletePremissionByRoleId" parameterType="int">
+        delete from sys_role_permission where role_id = #{roleId};
+    </delete>
+
+    <update id="updateRole" parameterType="role">
+        update sys_role  set name = #{name},description = #{description} where id = #{id};
+    </update>
+
+    <select id="findRoleByRoleName" parameterType="string" resultType="role">
+        select * from sys_role where name = #{name};
+    </select>
 </mapper>
