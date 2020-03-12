@@ -16,7 +16,8 @@
     <div class="layui-inline">
         <label class="layui-form-label">用户名</label>
         <div class="layui-input-inline">
-            <input type="text" name="username"  autocomplete="off" class="layui-input">
+            <input type="hidden" name="id" th:value="${user.id}">
+            <input type="text" name="username" th:value="${user.username}"  autocomplete="off" class="layui-input">
         </div>
     </div>
 </div>
@@ -25,7 +26,7 @@
     <div class="layui-inline">
         <label class="layui-form-label">密码</label>
         <div class="layui-input-inline">
-            <input type="text" name="password"  autocomplete="off" class="layui-input">
+            <input type="text" name="password" th:value="${user.password}"  autocomplete="off" class="layui-input">
         </div>
     </div>
 
@@ -34,7 +35,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">锁住的状态</label>
             <div class="layui-input-inline">
-                <select name="locked"  lay-search="">
+                <select name="locked" id="locked"  lay-search="">
                     <option value="0">正常</option>
                     <option value="1">锁住</option>
                 </select>
@@ -45,7 +46,12 @@
         <div class="layui-inline">
             <label class="layui-form-label">角色</label>
             <div class="layui-input-inline">
-                <input type="checkbox" name="roleIds" th:title="${role.name}" th:value="${role.id}" th:each="role:${roles}" lay-skin="primary"/>
+                <input type="checkbox" name="roleIds"
+                       th:title="${role.name}"
+                       th:value="${role.id}"
+                       th:each="role:${roles}"
+                       th:attr ="checked=${roleNameMap.containsKey(role.name) ? true : false}"
+                       lay-skin="primary"/>
             </div>
         </div>
     </div>
@@ -59,16 +65,17 @@
 
 
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-<script>
+<script th:inline="javascript">
     var $,layer;
-    layui.use(['form','laydate'], function(){
-        var laydate = layui.laydate;
+    layui.use(['form'], function(){
+
         $ = layui.jquery;
         layer = layui.layer;
-        //日期
-        laydate.render({
-            elem: '#order_date'
-        });
+
+        //设置select的状态选中
+        var locked_value = [[${user.locked}]];//取到当前页面的课程名称
+        var select = 'dd[lay-value=' + locked_value + ']';//属性选择器
+        $('#locked').siblings("div.layui-form-select").find('dl').find(select).click();
     })
     
     
@@ -78,11 +85,11 @@
         $.post("/user/save",requestData,function (responseData) {
             console.log(responseData);
             if(responseData.success == 1){
-                layer.alert("添加成功",{yes:function () {
+                layer.alert("修改成功",{yes:function () {
                     parent.layer.closeAll();
                 }});
             }else{
-                layer.alert("添加失败:"+responseData.msg,{yes:function () {
+                layer.alert("修改失败:"+responseData.msg,{yes:function () {
                     parent.layer.closeAll();
                 }});
             }

@@ -1,5 +1,6 @@
 package com.xb.crm.model;
 
+
 /**
  * @Description:
  * @author: xiongbiao
@@ -14,6 +15,8 @@ public class Role {
     private String name;
 
     private String description;
+
+
 
     public int getId() {
         return id;

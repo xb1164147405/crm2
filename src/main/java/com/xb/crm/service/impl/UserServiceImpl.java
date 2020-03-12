@@ -1,6 +1,7 @@
 package com.xb.crm.service.impl;
 
 import com.xb.crm.mapper.UserMapper;
+import com.xb.crm.model.CURDResult;
 import com.xb.crm.model.PageResult;
 import com.xb.crm.model.User;
 import com.xb.crm.service.IUserService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @Description:
@@ -44,5 +46,52 @@ public class UserServiceImpl implements IUserService {
         List<User> list = userMapper.findListByMap(params);
         result.setData(list);
         return result;
+    }
+
+    @Override
+    public CURDResult save(User user, Integer[] roleIds) {
+        CURDResult result = new CURDResult();
+        if (user.getId() == 0){
+            // TODO 参数校验
+            //插入新用户
+            if (userMapper.findUserByUsername(user.getUsername()) != null){
+                result.setSuccess(0);
+                result.setMsg("用户名已被占用。");
+                return result;
+            }
+            userMapper.insertUser(user);
+            for (int roleId : roleIds){
+                userMapper.insertUserAndRole(user.getId(),roleId);
+            }
+        }else {
+            //更新用户数据
+            //判断修改的角色名称在原角色中是否存在
+            User beforeUser = userMapper.findUserByUserId(user.getId());
+            User hasUser = userMapper.findUserByUsername(user.getUsername());
+            if (hasUser != null && !Objects.equals(beforeUser.getUsername(),hasUser.getUsername())){
+                result.setSuccess(0);
+                result.setMsg("该用户名已被占用。");
+                return result;
+            }
+            // TODO 参数校验
+            //修改用户数据
+            userMapper.updateUser(user);
+            //删除以前用户的角色数据
+            userMapper.deleteRolesByUserId(user.getId());
+            //插入新的角色数据
+            if (roleIds.length != 0){
+                for (int roleId : roleIds){
+                    userMapper.insertUserAndRole(user.getId(),roleId);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public User findUserAndRolesByUserId(Integer userId) {
+
+        return userMapper.findUserAndRoleByUserId(userId);
     }
 }

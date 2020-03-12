@@ -1,5 +1,9 @@
 package com.xb.crm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.List;
+
 /**
  * @Description:
  * @author: xiongbiao
@@ -18,6 +22,31 @@ public class User {
      * 锁住状态；0 未琐  1锁住
      */
     private int locked;
+
+    @JsonIgnore
+    private List<Role> roles;
+
+    public String getRoleNames(){
+        StringBuffer sb = new StringBuffer();
+        if (roles.size() > 0){
+            sb.append("[");
+            for (Role role : roles){
+                sb.append(role.getName() + ",");
+            }
+            sb.deleteCharAt(sb.length()-1);
+            sb.append("]");
+        }
+
+        return sb.toString();
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public int getId() {
         return id;

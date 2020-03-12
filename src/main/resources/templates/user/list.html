@@ -50,8 +50,10 @@
                     //edit: 'text' 为可编辑状态
                     , {field: 'id', title: 'ID', width: 120}
                     , {field: 'username', title: '用户名', width: 120}
-                    , {field: 'role', title: '角色', width: 200}
-                    , {field: 'locked', title: '状态', width: 200}
+                    , {field: 'roleNames', title: '角色', width: 300}
+                    , {field: 'locked', title: '状态', width: 200,templet:function (data) {
+                        return data.locked == '0' ? '正常':'锁住'
+                    }}
                     , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150}
                 ]
             ]
@@ -137,8 +139,8 @@
                 parent.layer.open({
                     type: 2,//2跳转到页面
                     offset: 'auto',
-                    title: '编辑角色',
-                    content: '/user/edit?roleId=' + userId,
+                    title: '编辑用户',
+                    content: '/user/edit?userId=' + userId,
                     area: ['600px', '600px'],
                     btn: '关闭全部',
                     btnAlign: 'c',//表示按钮居中显示
