@@ -25,4 +25,6 @@ public interface PermissionMapper {
     public int findMaxZIndex();
 
     public Permission findPermissionById(int id);
+
+    public List<Permission> findPermissionListByUserId(Integer userId);
 }

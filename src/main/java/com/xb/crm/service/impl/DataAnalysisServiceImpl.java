@@ -5,6 +5,7 @@ import com.xb.crm.model.MonthIncome;
 import com.xb.crm.service.IDataAnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @history: 1.2020/2/29 created by xiongbiao
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class DataAnalysisServiceImpl implements IDataAnalysisService {
 
     @Autowired

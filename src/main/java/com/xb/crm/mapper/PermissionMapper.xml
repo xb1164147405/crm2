@@ -46,4 +46,17 @@
         (name,path,authorization_flag,parent_id,is_menu,z_index)
         values(#{name},#{path},#{authorization_flag},#{parent_id},#{is_menu},#{z_index})
     </insert>
+
+    <select id="findPermissionListByUserId" parameterType="int" resultType="permission">
+        select p.*
+        from t_user u
+        left join sys_user_role ur
+        on u.id = ur.user_id
+        left join sys_role r
+        on ur.role_id = r.id
+        left join sys_role_permission rp
+        on r.id = rp.role_id
+        left join sys_permission p
+        on rp.permission_id = p.id where u.id = #{userId};
+    </select>
 </mapper>

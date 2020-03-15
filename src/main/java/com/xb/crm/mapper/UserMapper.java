@@ -25,6 +25,13 @@ public interface UserMapper {
 
     public void insertUserAndRole(int userId,Integer roleId);
 
+    /**
+     * 角色批插入
+     * @param userId
+     * @param roleIds
+     */
+    public void insertUserAndRolesBatch(int userId,Integer[] roleIds);
+
     public User findUserAndRoleByUserId(Integer userId);
 
 

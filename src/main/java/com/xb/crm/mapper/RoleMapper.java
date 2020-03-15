@@ -19,8 +19,9 @@ public interface RoleMapper {
 
     public void insertRole(Role role);
 
-
     public void insertRolePermission(int roleId, int permissionId);
+    //批处理
+    public void insertRolePermissionBatch(int roleId, String permissionIds);
 
     public Role findRoleByRoleId(int roleId);
 

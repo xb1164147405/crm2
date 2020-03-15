@@ -6,6 +6,7 @@ import com.xb.crm.model.Permission;
 import com.xb.crm.service.IPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
  * @history: 1.2020/3/6 created by xiongbiao
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class PermissionServiceImpl implements IPermissionService {
 
     @Autowired
@@ -54,12 +56,6 @@ public class PermissionServiceImpl implements IPermissionService {
             }
             String[] splitPath = permission.getPath().split("/");
             StringBuffer stringBuffer = new StringBuffer(permission.getAuthorization_flag());
-            /*for (String str : splitPath){
-                if (!StringUtils.isEmpty(str)){
-                    stringBuffer.append("_");
-                    stringBuffer.append(str);
-                }
-            }*/
             stringBuffer.append("_");
             stringBuffer.append(splitPath[1]);
             permission.setAuthorization_flag(stringBuffer.toString().toUpperCase());
@@ -84,5 +80,10 @@ public class PermissionServiceImpl implements IPermissionService {
         permissionMapper.insert(permission);
         curdResult.setMsg("插入成功！");
         return curdResult;
+    }
+
+    @Override
+    public List<Permission> findPermissionListByUserId(Integer userId) {
+        return permissionMapper.findPermissionListByUserId(userId);
     }
 }

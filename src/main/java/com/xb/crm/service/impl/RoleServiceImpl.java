@@ -6,6 +6,7 @@ import com.xb.crm.model.Role;
 import com.xb.crm.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.Objects;
  * @history: 1.2020/3/6 created by xiongbiao
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class RoleServiceImpl implements IRoleService {
 
     @Autowired
@@ -59,12 +61,16 @@ public class RoleServiceImpl implements IRoleService {
             //先删除旧的权限
             roleMapper.deletePremissionByRoleId(role.getId());
         }
-        String[] pmsArr = ids.split(",");
+        /*String[] pmsArr = ids.split(",");
         for (String pmsId : pmsArr){
             if (!StringUtils.isEmpty(pmsId)){
                 roleMapper.insertRolePermission(role.getId(),Integer.parseInt(pmsId));
             }
 
+        }*/
+        /*批处理插入*/
+        if (!StringUtils.isEmpty(ids)){
+            roleMapper.insertRolePermissionBatch(role.getId(),ids);
         }
 
         return result;

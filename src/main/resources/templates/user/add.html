@@ -16,7 +16,7 @@
     <div class="layui-inline">
         <label class="layui-form-label">用户名</label>
         <div class="layui-input-inline">
-            <input type="text" name="username"  autocomplete="off" class="layui-input">
+            <input type="text" lay-verify="required" name="username"  autocomplete="off" class="layui-input">
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
     <div class="layui-inline">
         <label class="layui-form-label">密码</label>
         <div class="layui-input-inline">
-            <input type="text" name="password"  autocomplete="off" class="layui-input">
+            <input type="text" lay-verify="required" name="password"  autocomplete="off" class="layui-input">
         </div>
     </div>
 
@@ -45,7 +45,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">角色</label>
             <div class="layui-input-inline">
-                <input type="checkbox" name="roleIds" th:title="${role.name}" th:value="${role.id}" th:each="role:${roles}" lay-skin="primary"/>
+                <input type="checkbox"  name="roleIds" th:title="${role.name}" th:value="${role.id}" th:each="role:${roles}" lay-skin="primary"/>
             </div>
         </div>
     </div>

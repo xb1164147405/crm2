@@ -42,6 +42,13 @@
         insert into sys_user_role(user_id,role_id) values(#{userId},#{roleId});
     </insert>
 
+    <insert id="insertUserAndRolesBatch">
+        insert into sys_user_role(user_id,role_id) values
+        <foreach collection="param2" item="roleId" separator=",">
+            (#{userId},#{roleId})
+        </foreach>
+    </insert>
+
     <select id="findUserAndRoleByUserId" parameterType="int" resultMap="userList">
         select u.id,u.username,u.password,u.locked,r.id as roleId,r.name,r.description
         from t_user u

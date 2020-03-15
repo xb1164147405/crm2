@@ -6,6 +6,7 @@ import com.xb.crm.model.PageResult;
 import com.xb.crm.service.ICourseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +20,7 @@ import java.util.Map;
  * @history: 1.2020/2/21 created by xiongbiao
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class CourseOrderServiceImpl implements ICourseOrderService {
 
     @Autowired

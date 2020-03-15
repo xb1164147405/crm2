@@ -15,6 +15,13 @@
     <insert id="insertRolePermission" parameterType="int">
         insert into sys_role_permission(role_id,permission_id) values (#{roleId},#{permissionId});
     </insert>
+    <!--角色权限表的批量插入-->
+    <insert id="insertRolePermissionBatch">
+        insert into sys_role_permission(role_id,permission_id) values
+        <foreach collection="param2.split(',')" item="permissionId" separator=",">
+            (#{roleId},#{permissionId})
+        </foreach>
+    </insert>
 
     <select id="findRoleByRoleId" parameterType="int" resultType="role">
         select * from sys_role where id = #{roleId};

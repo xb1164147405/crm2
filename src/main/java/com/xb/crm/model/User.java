@@ -1,6 +1,7 @@
 package com.xb.crm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -78,6 +79,16 @@ public class User {
 
     public void setLocked(int locked) {
         this.locked = locked;
+    }
+
+    public String validUser(){
+        if (StringUtils.isEmpty(this.username)){
+            return "用户名不能为空。";
+        }
+        if (StringUtils.isEmpty(this.password)){
+            return "密码不能为空";
+        }
+        return null;
     }
 
     @Override

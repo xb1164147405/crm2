@@ -7,6 +7,7 @@ import com.xb.crm.model.User;
 import com.xb.crm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.Objects;
  * @history: 1.2020/3/6 created by xiongbiao
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements IUserService {
 
     @Autowired
@@ -52,7 +54,12 @@ public class UserServiceImpl implements IUserService {
     public CURDResult save(User user, Integer[] roleIds) {
         CURDResult result = new CURDResult();
         if (user.getId() == 0){
-            // TODO 参数校验
+            String validStr = user.validUser();
+            if (validStr != null){
+                result.setSuccess(0);
+                result.setMsg(validStr);
+                return result;
+            }
             //插入新用户
             if (userMapper.findUserByUsername(user.getUsername()) != null){
                 result.setSuccess(0);
@@ -60,8 +67,12 @@ public class UserServiceImpl implements IUserService {
                 return result;
             }
             userMapper.insertUser(user);
-            for (int roleId : roleIds){
+            /*for (int roleId : roleIds){
                 userMapper.insertUserAndRole(user.getId(),roleId);
+            }*/
+            //角色批插入
+            if (roleIds != null && roleIds.length != 0){
+                userMapper.insertUserAndRolesBatch(user.getId(),roleIds);
             }
         }else {
             //更新用户数据
@@ -73,16 +84,22 @@ public class UserServiceImpl implements IUserService {
                 result.setMsg("该用户名已被占用。");
                 return result;
             }
-            // TODO 参数校验
+            String validStr = user.validUser();
+            if (validStr != null){
+                result.setSuccess(0);
+                result.setMsg(validStr);
+                return result;
+            }
             //修改用户数据
             userMapper.updateUser(user);
             //删除以前用户的角色数据
             userMapper.deleteRolesByUserId(user.getId());
             //插入新的角色数据
-            if (roleIds.length != 0){
-                for (int roleId : roleIds){
+            if (roleIds != null && roleIds.length != 0){
+                /*for (int roleId : roleIds){
                     userMapper.insertUserAndRole(user.getId(),roleId);
-                }
+                }*/
+                userMapper.insertUserAndRolesBatch(user.getId(),roleIds);
             }
         }
 
@@ -91,7 +108,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User findUserAndRolesByUserId(Integer userId) {
-
         return userMapper.findUserAndRoleByUserId(userId);
     }
 }

@@ -1,5 +1,7 @@
 package com.xb.crm.web.security;
 
+import com.xb.crm.model.Permission;
+import com.xb.crm.service.IPermissionService;
 import com.xb.crm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,6 +34,9 @@ public class MyUserDetailService implements UserDetailsService {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IPermissionService permissionService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //用户认证
@@ -49,18 +55,23 @@ public class MyUserDetailService implements UserDetailsService {
                 //密码是从数据中获取，而且密码需要加密器进行加密
                 pwd,
                 //给当前用户进行授权
-                getCurrentUserAuthorities());
+                getCurrentUserAuthorities(dbUser.getId()));
     }
 
     /**
      * 获取当前用户拥有的权限
      * @return
      */
-    public Collection<? extends GrantedAuthority> getCurrentUserAuthorities(){
+    public Collection<? extends GrantedAuthority> getCurrentUserAuthorities(Integer userId){
 
         List<GrantedAuthority> list = new ArrayList();
-        list.add(new SimpleGrantedAuthority("COURSEORDER_READ"));
-        list.add(new SimpleGrantedAuthority("COURSEORDER_DELETE"));
+        List<Permission> permissionList = permissionService.findPermissionListByUserId(userId);
+        for (Permission permission : permissionList){
+
+            if (permission != null && !StringUtils.isEmpty(permission.getAuthorization_flag())){
+                list.add(new SimpleGrantedAuthority(permission.getAuthorization_flag()));
+            }
+        }
         return list;
     }
 }

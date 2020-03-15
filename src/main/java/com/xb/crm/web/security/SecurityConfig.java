@@ -1,8 +1,14 @@
 package com.xb.crm.web.security;
 
+import com.xb.crm.model.Permission;
+import com.xb.crm.service.IPermissionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.util.StringUtils;
+
+import java.util.List;
 
 /**
  * @Description: <p>启动web安全功能</p>
@@ -12,6 +18,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private IPermissionService permissionService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //设置spring-security支持iframe
@@ -20,17 +30,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpStrictTransportSecurity().disable();
         //允许ajax的post请求
         http.csrf().disable();
+        //加载所有的权限数据
+        List<Permission> permissionList = permissionService.findAllPermission();
+        for (Permission permission : permissionList){
+            //设置什么样的路径需要什么权限标识
+            if (!StringUtils.isEmpty(permission.getPath())){
+                http.authorizeRequests()
+                        .antMatchers(permission.getPath()).hasAnyAuthority(permission.getAuthorization_flag());
+            }
+        }
         http .authorizeRequests()
-                /*.antMatchers("/css/**", "/index").permitAll()*/
-                /*访问user下的路径需要USER角色的权限*/
-                /*.antMatchers("/user/**").hasRole("USER")*/
-                .antMatchers("/courseorder/list").hasAnyAuthority("COURSEORDER_READ")
-                .antMatchers("/courseorder/detail").hasAnyAuthority("COURSEORDER_READ")
-                .antMatchers("/courseorder/listJson").hasAnyAuthority("COURSEORDER_READ")
-                .antMatchers("/courseorder/add").hasAnyAuthority("COURSEORDER_ADD")
-                .antMatchers("/courseorder/detele").hasAnyAuthority("COURSEORDER_DETELE")
-                .antMatchers("/courseorder/save").hasAnyAuthority("COURSEORDER_SAVE")
-                .antMatchers("/courseorder/edit").hasAnyAuthority("COURSEORDER_EDIT")
                 /*代表login不需要拦截*/
                 .antMatchers("/login").permitAll()
                 /*设置所有访问路径都需要请求认证*/

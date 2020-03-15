@@ -21,4 +21,6 @@ public interface IPermissionService {
     public List<Permission> findAllParentNode();
 
     public CURDResult insert(Permission permission);
+
+    public List<Permission> findPermissionListByUserId(Integer userId);
 }
