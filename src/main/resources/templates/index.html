@@ -51,7 +51,7 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-                <li class="layui-nav-item layui-nav-itemed" th:each="menu : ${menusList}">
+                <li th:class="${menuState.index == 0 ? 'layui-nav-item layui-nav-itemed' : 'layui-nav-item'}" th:each="menu,menuState: ${menusList}">
                     <a class="" href="javascript:;" th:text="${menu.name}"></a>
                     <dl class="layui-nav-child">
                         <dd th:each="subMenu : ${menu.subMenus}"><a
