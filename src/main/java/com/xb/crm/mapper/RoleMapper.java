@@ -32,4 +32,8 @@ public interface RoleMapper {
     public void updateRole(Role role);
 
     public Role findRoleByRoleName(String name);
+
+    public void deletePermissionByPermissIdsBatch(String permissionIds);
+
+    public void deleteRoleByRoleId(Integer roleId);
 }

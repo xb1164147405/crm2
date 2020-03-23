@@ -122,7 +122,7 @@
                     obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                     layer.close(index);
                     //向服务端发送删除指令
-                    $.get("/role/delete",{order_id:orderId},function (responseData) {
+                    $.get("/role/delete",{role_id:roleId},function (responseData) {
                         if (responseData.success == 1){
                             layer.msg("删除成功");
                         }else {

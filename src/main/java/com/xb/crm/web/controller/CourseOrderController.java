@@ -63,7 +63,7 @@ public class CourseOrderController {
 
     @RequestMapping("/delete")
     @ResponseBody
-    public CURDResult detail(String order_id){
+    public CURDResult delete(String order_id){
         CURDResult result = new CURDResult();
         try {
             courseOrderService.deleteByOrderId(order_id);

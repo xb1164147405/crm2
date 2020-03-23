@@ -42,4 +42,16 @@
     <select id="findRoleByRoleName" parameterType="string" resultType="role">
         select * from sys_role where name = #{name};
     </select>
+
+    <delete id="deletePermissionByPermissIdsBatch" parameterType="string">
+        delete from sys_role_permission where permission_id in
+        <foreach collection="permissionIds.split(',')" item="permissionId"
+                 open="(" separator="," close=")">
+            #{permissionId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteRoleByRoleId" parameterType="int">
+        delete from sys_role where id = #{roleId};
+    </delete>
 </mapper>

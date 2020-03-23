@@ -95,4 +95,26 @@ public class RoleServiceImpl implements IRoleService {
 
         return stringBuffer.toString();
     }
+
+    @Override
+    public CURDResult deleteByRoleId(String role_id) {
+        CURDResult result = new CURDResult();
+        try {
+            List<Integer> permissionIdList = roleMapper.findPermissionIdByRoleId(Integer.valueOf(role_id));
+            if (permissionIdList.size() != 0){
+                StringBuffer permissionIds = new StringBuffer();
+                for (Integer permissionid : permissionIdList){
+                    permissionIds.append(permissionid).append(",");
+                }
+                permissionIds.deleteCharAt(permissionIds.length()-1);
+                roleMapper.deletePermissionByPermissIdsBatch(permissionIds.toString());
+            }
+            roleMapper.deleteRoleByRoleId(Integer.valueOf(role_id));
+        } catch (NumberFormatException e) {
+            result.setSuccess(0);
+            result.setMsg("删除角色失败：" + e);
+            return result;
+        }
+        return result;
+    }
 }

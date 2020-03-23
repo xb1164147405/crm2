@@ -21,4 +21,6 @@ public interface IRoleService {
     public Role findRoleByRoleId(int roleId);
 
     public String findPermissionIdsByRoleId(int roleId);
+
+    public CURDResult deleteByRoleId(String role_id);
 }

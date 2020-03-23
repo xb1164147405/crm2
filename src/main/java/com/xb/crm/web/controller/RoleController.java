@@ -70,4 +70,12 @@ public class RoleController {
         result.setData(roleService.findAllRoles());
         return result;
     }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public CURDResult delete(String role_id){
+        CURDResult result = new CURDResult();
+        result = roleService.deleteByRoleId(role_id);
+        return result;
+    }
 }
