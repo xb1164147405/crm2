@@ -59,4 +59,12 @@
         left join sys_permission p
         on rp.permission_id = p.id where u.id = #{userId};
     </select>
+
+    <delete id="deleteRoleAndPermByPermissionId" parameterType="int">
+        delete from sys_role_permission where permission_id = #{permissionId};
+    </delete>
+
+    <delete id="deletePermissionByPermissionId" parameterType="int">
+        delete from sys_permission where id = #{permissionId};
+    </delete>
 </mapper>

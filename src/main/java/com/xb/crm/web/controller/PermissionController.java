@@ -62,4 +62,12 @@ public class PermissionController {
         result.setData(permissionService.findAllPermission());
         return result;
     }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public CURDResult delete(String permissionId){
+        CURDResult result = new CURDResult();
+        result = permissionService.deletePermissionByPermId(permissionId);
+        return result;
+    }
 }

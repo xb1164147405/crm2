@@ -51,8 +51,13 @@ public class RoleController {
     @RequestMapping("/save")
     @ResponseBody
     public CURDResult save(Role role,String ids){
-        //TODO 参数校验
         CURDResult result = new CURDResult();
+        String validMsg = role.roleValid();
+        if (validMsg != null){
+            result.setSuccess(0);
+            result.setMsg(validMsg);
+            return result;
+        }
         result = roleService.insert(role, ids);
         return result;
     }

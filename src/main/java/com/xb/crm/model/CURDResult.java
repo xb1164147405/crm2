@@ -39,4 +39,12 @@ public class CURDResult {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    @Override
+    public String toString() {
+        return "CURDResult{" +
+                "success=" + success +
+                ", msg='" + msg + '\'' +
+                '}';
+    }
 }

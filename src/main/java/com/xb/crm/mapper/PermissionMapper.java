@@ -27,4 +27,8 @@ public interface PermissionMapper {
     public Permission findPermissionById(int id);
 
     public List<Permission> findPermissionListByUserId(Integer userId);
+
+    public void deleteRoleAndPermByPermissionId(Integer permissionId);
+
+    public void deletePermissionByPermissionId(Integer permissionId);
 }

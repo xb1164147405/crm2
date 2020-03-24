@@ -1,6 +1,8 @@
 package com.xb.crm.model;
 
 
+import org.springframework.util.StringUtils;
+
 /**
  * @Description:
  * @author: xiongbiao
@@ -49,5 +51,12 @@ public class Role {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    public String roleValid(){
+        if (StringUtils.isEmpty(this.name)){
+            return "角色名称不能为空。";
+        }
+        return null;
     }
 }

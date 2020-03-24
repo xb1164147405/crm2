@@ -86,4 +86,20 @@ public class PermissionServiceImpl implements IPermissionService {
     public List<Permission> findPermissionListByUserId(Integer userId) {
         return permissionMapper.findPermissionListByUserId(userId);
     }
+
+    @Override
+    public CURDResult deletePermissionByPermId(String permissionId) {
+        CURDResult result = new CURDResult();
+        try {
+            //先删除权限角色关联表的信息
+            permissionMapper.deleteRoleAndPermByPermissionId(Integer.valueOf(permissionId));
+
+            //再删除对应权限
+            permissionMapper.deletePermissionByPermissionId(Integer.valueOf(permissionId));
+        } catch (NumberFormatException e) {
+            result.setSuccess(0);
+            result.setMsg(e.toString());
+        }
+        return result;
+    }
 }

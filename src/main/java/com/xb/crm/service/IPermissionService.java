@@ -23,4 +23,6 @@ public interface IPermissionService {
     public CURDResult insert(Permission permission);
 
     public List<Permission> findPermissionListByUserId(Integer userId);
+
+    public CURDResult deletePermissionByPermId(String permissionId);
 }

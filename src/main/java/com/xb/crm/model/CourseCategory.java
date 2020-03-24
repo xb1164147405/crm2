@@ -56,4 +56,15 @@ public class CourseCategory {
     public void setCourse_author(String course_author) {
         this.course_author = course_author;
     }
+
+    @Override
+    public String toString() {
+        return "CourseCategory{" +
+                "id=" + id +
+                ", course_name='" + course_name + '\'' +
+                ", publish_datetime=" + publish_datetime +
+                ", status=" + status +
+                ", course_author='" + course_author + '\'' +
+                '}';
+    }
 }
