@@ -34,10 +34,11 @@ public interface UserMapper {
 
     public User findUserAndRoleByUserId(Integer userId);
 
-
     public User findUserByUserId(int id);
 
     public void updateUser(User user);
 
     public void deleteRolesByUserId(int userId);
+
+    public void deleteUserByUserId(Integer userId);
 }

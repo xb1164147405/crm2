@@ -20,4 +20,7 @@ public interface IUserService {
     public CURDResult save(User user, Integer[] roleIds);
 
     public User findUserAndRolesByUserId(Integer userId);
+
+    public CURDResult deleteUserByUserId(String userId);
+
 }

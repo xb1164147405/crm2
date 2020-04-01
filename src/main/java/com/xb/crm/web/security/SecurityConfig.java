@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         }
         http .authorizeRequests()
                 /*代表静态资源不需要拦截*/
-                .antMatchers("/img/**","/login/**","/js/**","/css/**","/images/*","/fonts/**","/**/*.png","/**/*.jpg").permitAll()
+                .antMatchers("bootstrap/**","/dropzone/**","/img/**","/login/**","/js/**","/css/**","/images/*","/fonts/**","/**/*.png","/**/*.jpg").permitAll()
                 /*代表login不需要拦截*/
                 .antMatchers("/login").permitAll()
                 /*设置所有访问路径都需要请求认证*/

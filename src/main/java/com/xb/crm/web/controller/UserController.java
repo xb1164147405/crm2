@@ -72,4 +72,14 @@ public class UserController {
     public PageResult<User> listJson(User condition, int page, int limit){
         return userService.findPageResult(condition, page, limit);
     }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public CURDResult delete(String userId){
+        CURDResult result = new CURDResult();
+        result = userService.deleteUserByUserId(userId);
+        return result;
+    }
+
+
 }

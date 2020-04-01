@@ -110,4 +110,17 @@ public class UserServiceImpl implements IUserService {
     public User findUserAndRolesByUserId(Integer userId) {
         return userMapper.findUserAndRoleByUserId(userId);
     }
+
+    @Override
+    public CURDResult deleteUserByUserId(String userId) {
+        CURDResult result = new CURDResult();
+        try {
+            userMapper.deleteRolesByUserId(Integer.valueOf(userId));
+            userMapper.deleteUserByUserId(Integer.valueOf(userId));
+        } catch (NumberFormatException e) {
+            result.setSuccess(0);
+            result.setMsg(e.toString());
+        }
+        return result;
+    }
 }

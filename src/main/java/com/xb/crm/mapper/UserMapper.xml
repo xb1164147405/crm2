@@ -71,4 +71,8 @@
     <delete id="deleteRolesByUserId" parameterType="int">
         delete from sys_user_role where user_id = #{userId};
     </delete>
+
+    <delete id="deleteUserByUserId" parameterType="int">
+        delete from t_user where id = #{userId};
+    </delete>
 </mapper>

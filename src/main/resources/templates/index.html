@@ -35,11 +35,13 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img th:src="@{/img/head.jpg}" class="layui-nav-img">
-                    穿凉拖的熊
+                    <!--<img th:src="@{/img/head.jpg}" class="layui-nav-img">-->
+                    <!--穿凉拖的熊-->
+                    <!--<img th:src="@{/img/head.jpg}" class="layui-nav-img" th:text="${username}">-->
+                    <img th:src="@{'/upload/'+${headPhoto.file_name}}" class="layui-nav-img" th:text="${username}">
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
+                    <dd><a th:href="@{/userInfo/listInfo(username=${username})}" target="content_iFrm">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>

@@ -73,7 +73,7 @@
         layer = layui.layer;
 
         //设置select的状态选中
-        var locked_value = [[${user.locked}]];//取到当前页面的课程名称
+        var locked_value = [[${user.locked}]];//取到值
         var select = 'dd[lay-value=' + locked_value + ']';//属性选择器
         $('#locked').siblings("div.layui-form-select").find('dl').find(select).click();
     })

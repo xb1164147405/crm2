@@ -1,0 +1,528 @@
+2020-03-23 20:14:14.807 [restartedMain] INFO  com.xb.crm.CrmApplication - Starting CrmApplication on DESKTOP-DNHIG0H with PID 20708 (D:\graduationProject\springbootProject\crm\target\classes started by Administrator in D:\graduationProject\springbootProject\crm)
+2020-03-23 20:14:14.847 [restartedMain] INFO  com.xb.crm.CrmApplication - No active profile set, falling back to default profiles: default
+2020-03-23 20:14:15.057 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-23 20:14:15.057 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-23 20:14:17.546 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$ea035798] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-23 20:14:17.606 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2020-03-23 20:14:18.346 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2020-03-23 20:14:18.366 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2020-03-23 20:14:18.366 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-03-23 20:14:18.366 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-23 20:14:18.586 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-03-23 20:14:18.586 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3529 ms
+2020-03-23 20:14:18.846 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-03-23 20:14:20.476 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-03-23 20:14:21.186 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-03-23 20:14:21.236 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-03-23 20:14:21.696 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 26
+2020-03-23 20:14:21.836 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f8ad55, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f424481, org.springframework.security.web.header.HeaderWriterFilter@32b1ad0, org.springframework.security.web.authentication.logout.LogoutFilter@5f4c835, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3fe40fca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@542f7b16, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76981716, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ec029f5, org.springframework.security.web.session.SessionManagementFilter@36b121a4, org.springframework.security.web.access.ExceptionTranslationFilter@a627a3d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d511be5]
+2020-03-23 20:14:22.046 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-23 20:14:22.156 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-03-23 20:14:22.706 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2020-03-23 20:14:22.766 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2020-03-23 20:14:22.786 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-23 20:14:22.786 [restartedMain] INFO  com.xb.crm.CrmApplication - Started CrmApplication in 8.794 seconds (JVM running for 11.632)
+2020-03-23 20:14:32.965 [http-nio-8888-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie - A cookie header was received [1584237564,1584753935,1584859029] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-03-23 20:14:32.970 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-23 20:14:32.971 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-03-23 20:14:32.979 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2020-03-23 20:14:33.077 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:14:33.077 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/login
+2020-03-23 20:14:33.077 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:14:33.077 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:14:33.081 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:14:33.081 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : login3
+2020-03-23 20:14:33.081 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:14:33.529 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:14:33.529 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/login
+2020-03-23 20:14:33.529 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:14:33.529 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:14:33.529 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:14:33.529 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : login3
+2020-03-23 20:14:33.530 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:14:38.801 [http-nio-8888-exec-8] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-03-23 20:14:38.802 [http-nio-8888-exec-8] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-03-23 20:14:38.876 [http-nio-8888-exec-8] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-03-23 20:14:38.973 [http-nio-8888-exec-8] DEBUG c.x.c.m.P.findPermissionListByUserId - ==>  Preparing: select p.* from t_user u left join sys_user_role ur on u.id = ur.user_id left join sys_role r on ur.role_id = r.id left join sys_role_permission rp on r.id = rp.role_id left join sys_permission p on rp.permission_id = p.id where u.id = ?; 
+2020-03-23 20:14:38.974 [http-nio-8888-exec-8] DEBUG c.x.c.m.P.findPermissionListByUserId - ==> Parameters: 1(Integer)
+2020-03-23 20:14:39.029 [http-nio-8888-exec-8] DEBUG c.x.c.m.P.findPermissionListByUserId - <==      Total: 27
+2020-03-23 20:14:39.146 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:14:39.146 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/index
+2020-03-23 20:14:39.146 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-03-23 20:14:39.146 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:14:39.147 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - name:username value:admin
+2020-03-23 20:14:39.147 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - name:password value:123456
+2020-03-23 20:14:39.166 [http-nio-8888-exec-8] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==>  Preparing: select t1.name, t2.id as sub_id, t2.name as sub_name, t2.path as sub_path, t2.authorization_flag as sub_authorization_flag from sys_permission t1 left join sys_permission t2 on t1.id = t2.parent_id where t1.parent_id = 0 order by t1.z_index; 
+2020-03-23 20:14:39.167 [http-nio-8888-exec-8] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==> Parameters: 
+2020-03-23 20:14:39.189 [http-nio-8888-exec-8] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - <==      Total: 8
+2020-03-23 20:14:39.191 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:14:39.191 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : index
+2020-03-23 20:14:39.191 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:14:39.374 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:14:39.374 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/list
+2020-03-23 20:14:39.374 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:14:39.374 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:14:39.378 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:14:39.379 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : courseorder/list
+2020-03-23 20:14:39.379 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:14:39.709 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:14:39.709 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/listJson
+2020-03-23 20:14:39.709 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:14:39.709 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:14:39.709 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 20:14:39.709 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 20:14:39.779 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==>  Preparing: select count(*) from t_course_order 
+2020-03-23 20:14:39.779 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==> Parameters: 
+2020-03-23 20:14:39.857 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - <==      Total: 1
+2020-03-23 20:14:39.859 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==>  Preparing: select * from t_course_order order by order_date desc limit ?,?; 
+2020-03-23 20:14:39.859 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==> Parameters: 0(Integer), 10(Integer)
+2020-03-23 20:14:39.871 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - <==      Total: 10
+2020-03-23 20:14:39.872 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:14:39.873 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@62d6c142
+2020-03-23 20:14:39.873 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:28:59.114 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:28:59.114 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/user/list
+2020-03-23 20:28:59.114 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:28:59.114 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:28:59.117 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:28:59.117 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : user/list
+2020-03-23 20:28:59.117 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:28:59.265 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:28:59.265 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/user/listJson
+2020-03-23 20:28:59.265 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:28:59.265 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:28:59.265 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 20:28:59.265 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:7
+2020-03-23 20:28:59.272 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.UserMapper.findCountByMap - ==>  Preparing: select count(*) from t_user; 
+2020-03-23 20:28:59.273 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.UserMapper.findCountByMap - ==> Parameters: 
+2020-03-23 20:28:59.289 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.UserMapper.findCountByMap - <==      Total: 1
+2020-03-23 20:28:59.290 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.UserMapper.findListByMap - ==>  Preparing: select u.id,u.username,u.password,u.locked,r.id as roleId,r.name,r.description from t_user u left join sys_user_role ur on u.id = ur.user_id left join sys_role r on ur.role_id = r.id where u.id in (select t.id from (select id from t_user order by id limit ?,?) as t); 
+2020-03-23 20:28:59.290 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.UserMapper.findListByMap - ==> Parameters: 0(Integer), 7(Integer)
+2020-03-23 20:28:59.307 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.UserMapper.findListByMap - <==      Total: 8
+2020-03-23 20:28:59.308 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:28:59.308 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@3bf02054
+2020-03-23 20:28:59.308 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:29:07.542 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:29:07.542 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/list
+2020-03-23 20:29:07.542 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:29:07.542 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:29:07.546 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:29:07.546 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/list
+2020-03-23 20:29:07.546 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:29:07.699 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:29:07.700 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/listJson
+2020-03-23 20:29:07.700 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:29:07.700 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:29:07.700 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 20:29:07.700 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 20:29:07.703 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==>  Preparing: select * from sys_role; 
+2020-03-23 20:29:07.704 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==> Parameters: 
+2020-03-23 20:29:07.708 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - <==      Total: 6
+2020-03-23 20:29:07.710 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:29:07.710 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@46a7b2f5
+2020-03-23 20:29:07.710 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:30:53.252 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:30:53.252 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/permission/list
+2020-03-23 20:30:53.252 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:30:53.252 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:30:53.255 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:30:53.255 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : permission/list
+2020-03-23 20:30:53.255 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:30:53.369 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:30:53.370 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/permission/listJson
+2020-03-23 20:30:53.370 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:30:53.370 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:30:53.370 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 20:30:53.370 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 20:30:53.374 [http-nio-8888-exec-5] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-03-23 20:30:53.375 [http-nio-8888-exec-5] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-03-23 20:30:53.377 [http-nio-8888-exec-5] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 26
+2020-03-23 20:30:53.381 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:30:53.381 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@46a57b1a
+2020-03-23 20:30:53.381 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:19.628 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:19.629 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/permission/list
+2020-03-23 20:31:19.629 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:19.629 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:19.629 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:19.629 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : permission/list
+2020-03-23 20:31:19.629 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:19.719 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:19.719 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/permission/listJson
+2020-03-23 20:31:19.719 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:19.719 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:19.719 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 20:31:19.719 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 20:31:19.720 [http-nio-8888-exec-8] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-03-23 20:31:19.721 [http-nio-8888-exec-8] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-03-23 20:31:19.722 [http-nio-8888-exec-8] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 26
+2020-03-23 20:31:19.724 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:19.724 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@221a90a2
+2020-03-23 20:31:19.724 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:47.394 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:47.394 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/list
+2020-03-23 20:31:47.394 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:47.394 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:47.394 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:47.394 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/list
+2020-03-23 20:31:47.394 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:47.511 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:47.511 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/listJson
+2020-03-23 20:31:47.511 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:47.511 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:47.511 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 20:31:47.511 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 20:31:47.512 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==>  Preparing: select * from sys_role; 
+2020-03-23 20:31:47.512 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==> Parameters: 
+2020-03-23 20:31:47.514 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - <==      Total: 6
+2020-03-23 20:31:47.515 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:47.515 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@377fda04
+2020-03-23 20:31:47.515 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:52.694 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:52.694 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/edit
+2020-03-23 20:31:52.694 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:52.694 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:52.694 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - name:roleId value:5
+2020-03-23 20:31:52.696 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleId - ==>  Preparing: select * from sys_role where id = ?; 
+2020-03-23 20:31:52.696 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleId - ==> Parameters: 5(Integer)
+2020-03-23 20:31:52.697 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleId - <==      Total: 1
+2020-03-23 20:31:52.701 [http-nio-8888-exec-9] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - ==>  Preparing: select permission_id from sys_role_permission where role_id = ?; 
+2020-03-23 20:31:52.702 [http-nio-8888-exec-9] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - ==> Parameters: 5(Integer)
+2020-03-23 20:31:52.703 [http-nio-8888-exec-9] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - <==      Total: 0
+2020-03-23 20:31:52.705 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:52.705 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/edit
+2020-03-23 20:31:52.705 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:52.807 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:52.807 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/permission/listJson
+2020-03-23 20:31:52.807 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:52.807 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:52.809 [http-nio-8888-exec-2] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-03-23 20:31:52.809 [http-nio-8888-exec-2] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-03-23 20:31:52.811 [http-nio-8888-exec-2] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 26
+2020-03-23 20:31:52.812 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:52.812 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@2692e315
+2020-03-23 20:31:52.812 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:57.171 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:57.172 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/edit
+2020-03-23 20:31:57.172 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:57.172 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:57.172 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - name:roleId value:5
+2020-03-23 20:31:57.173 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleId - ==>  Preparing: select * from sys_role where id = ?; 
+2020-03-23 20:31:57.174 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleId - ==> Parameters: 5(Integer)
+2020-03-23 20:31:57.178 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleId - <==      Total: 1
+2020-03-23 20:31:57.182 [http-nio-8888-exec-10] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - ==>  Preparing: select permission_id from sys_role_permission where role_id = ?; 
+2020-03-23 20:31:57.182 [http-nio-8888-exec-10] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - ==> Parameters: 5(Integer)
+2020-03-23 20:31:57.182 [http-nio-8888-exec-10] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - <==      Total: 0
+2020-03-23 20:31:57.183 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:57.183 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/edit
+2020-03-23 20:31:57.183 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:31:57.232 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 20:31:57.232 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/permission/listJson
+2020-03-23 20:31:57.232 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 20:31:57.232 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 20:31:57.233 [http-nio-8888-exec-8] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-03-23 20:31:57.233 [http-nio-8888-exec-8] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-03-23 20:31:57.236 [http-nio-8888-exec-8] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 26
+2020-03-23 20:31:57.237 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 20:31:57.237 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@1116662d
+2020-03-23 20:31:57.237 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 20:38:02.848 [Thread-22] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-23 20:38:02.858 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-03-23 20:38:04.199 [restartedMain] INFO  com.xb.crm.CrmApplication - Starting CrmApplication on DESKTOP-DNHIG0H with PID 20708 (D:\graduationProject\springbootProject\crm\target\classes started by Administrator in D:\graduationProject\springbootProject\crm)
+2020-03-23 20:38:04.199 [restartedMain] INFO  com.xb.crm.CrmApplication - No active profile set, falling back to default profiles: default
+2020-03-23 20:38:04.429 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$ea035798] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-23 20:38:04.429 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2020-03-23 20:38:04.529 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2020-03-23 20:38:04.529 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2020-03-23 20:38:04.529 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-03-23 20:38:04.529 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-23 20:38:04.549 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-03-23 20:38:04.549 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 350 ms
+2020-03-23 20:38:04.589 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-03-23 20:38:04.819 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-03-23 20:38:04.949 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleController': Unsatisfied dependency expressed through field 'roleService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.xb.crm.service.IRoleService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-03-23 20:38:04.949 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-03-23 20:38:04.949 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-03-23 20:38:04.959 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-03-23 20:38:05.139 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field roleService in com.xb.crm.web.controller.RoleController required a bean of type 'com.xb.crm.service.IRoleService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.xb.crm.service.IRoleService' in your configuration.
+
+2020-03-23 21:05:07.616 [restartedMain] INFO  com.xb.crm.CrmApplication - Starting CrmApplication on DESKTOP-DNHIG0H with PID 20880 (D:\graduationProject\springbootProject\crm\target\classes started by Administrator in D:\graduationProject\springbootProject\crm)
+2020-03-23 21:05:07.661 [restartedMain] INFO  com.xb.crm.CrmApplication - No active profile set, falling back to default profiles: default
+2020-03-23 21:05:07.766 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-23 21:05:07.767 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-23 21:05:09.080 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$339b001e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-23 21:05:09.112 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2020-03-23 21:05:09.562 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2020-03-23 21:05:09.570 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2020-03-23 21:05:09.571 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-03-23 21:05:09.571 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-23 21:05:09.720 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-03-23 21:05:09.720 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1952 ms
+2020-03-23 21:05:09.842 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-03-23 21:05:10.200 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-03-23 21:05:10.790 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-03-23 21:05:10.810 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-03-23 21:05:10.838 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 26
+2020-03-23 21:05:10.899 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6188c461, org.springframework.security.web.context.SecurityContextPersistenceFilter@60a01afd, org.springframework.security.web.header.HeaderWriterFilter@1ae89b65, org.springframework.security.web.authentication.logout.LogoutFilter@489a7ee1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@56bc86de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c5f00ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4463e6e3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36497506, org.springframework.security.web.session.SessionManagementFilter@789c8477, org.springframework.security.web.access.ExceptionTranslationFilter@34086281, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59e17fb3]
+2020-03-23 21:05:11.071 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-23 21:05:11.155 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-03-23 21:05:11.424 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2020-03-23 21:05:11.452 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2020-03-23 21:05:11.473 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-23 21:05:11.476 [restartedMain] INFO  com.xb.crm.CrmApplication - Started CrmApplication in 4.441 seconds (JVM running for 7.742)
+2020-03-23 21:05:25.395 [http-nio-8888-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie - A cookie header was received [1584753935,1584859029,1584965680; Hm_lpvt_d214947968792b839fd669a4decaaffc=1584965680] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-03-23 21:05:25.406 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-23 21:05:25.406 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-03-23 21:05:25.421 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+2020-03-23 21:05:25.556 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-03-23 21:05:25.557 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-03-23 21:05:25.558 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-03-23 21:05:25.677 [http-nio-8888-exec-1] DEBUG c.x.c.m.P.findPermissionListByUserId - ==>  Preparing: select p.* from t_user u left join sys_user_role ur on u.id = ur.user_id left join sys_role r on ur.role_id = r.id left join sys_role_permission rp on r.id = rp.role_id left join sys_permission p on rp.permission_id = p.id where u.id = ?; 
+2020-03-23 21:05:25.678 [http-nio-8888-exec-1] DEBUG c.x.c.m.P.findPermissionListByUserId - ==> Parameters: 1(Integer)
+2020-03-23 21:05:25.684 [http-nio-8888-exec-1] DEBUG c.x.c.m.P.findPermissionListByUserId - <==      Total: 27
+2020-03-23 21:05:25.799 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:25.800 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/index
+2020-03-23 21:05:25.801 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-03-23 21:05:25.801 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:25.802 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - name:username value:admin
+2020-03-23 21:05:25.802 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - name:password value:123456
+2020-03-23 21:05:25.805 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==>  Preparing: select t1.name, t2.id as sub_id, t2.name as sub_name, t2.path as sub_path, t2.authorization_flag as sub_authorization_flag from sys_permission t1 left join sys_permission t2 on t1.id = t2.parent_id where t1.parent_id = 0 order by t1.z_index; 
+2020-03-23 21:05:25.807 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==> Parameters: 
+2020-03-23 21:05:25.812 [http-nio-8888-exec-1] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - <==      Total: 8
+2020-03-23 21:05:25.813 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:25.814 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : index
+2020-03-23 21:05:25.814 [http-nio-8888-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:26.178 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:26.178 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/list
+2020-03-23 21:05:26.178 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:26.178 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:26.184 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:26.184 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : courseorder/list
+2020-03-23 21:05:26.184 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:26.423 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:26.423 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/listJson
+2020-03-23 21:05:26.423 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:26.423 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:26.423 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 21:05:26.423 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 21:05:26.460 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==>  Preparing: select count(*) from t_course_order 
+2020-03-23 21:05:26.460 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==> Parameters: 
+2020-03-23 21:05:26.462 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - <==      Total: 1
+2020-03-23 21:05:26.464 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==>  Preparing: select * from t_course_order order by order_date desc limit ?,?; 
+2020-03-23 21:05:26.465 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==> Parameters: 0(Integer), 10(Integer)
+2020-03-23 21:05:26.475 [http-nio-8888-exec-10] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - <==      Total: 10
+2020-03-23 21:05:26.476 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:26.476 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@17533b29
+2020-03-23 21:05:26.476 [http-nio-8888-exec-10] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:29.520 [http-nio-8888-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:29.520 [http-nio-8888-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/list
+2020-03-23 21:05:29.520 [http-nio-8888-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:29.520 [http-nio-8888-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:29.523 [http-nio-8888-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:29.523 [http-nio-8888-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/list
+2020-03-23 21:05:29.523 [http-nio-8888-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:29.643 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:29.643 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/listJson
+2020-03-23 21:05:29.644 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:29.644 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:29.644 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 21:05:29.644 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 21:05:29.652 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==>  Preparing: select * from sys_role; 
+2020-03-23 21:05:29.652 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==> Parameters: 
+2020-03-23 21:05:29.654 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - <==      Total: 6
+2020-03-23 21:05:29.655 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:29.655 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@23a0d9c9
+2020-03-23 21:05:29.655 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:31.519 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:31.519 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/add
+2020-03-23 21:05:31.519 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:31.519 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:31.520 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:31.520 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/add
+2020-03-23 21:05:31.520 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:31.602 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:31.602 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/permission/listJson
+2020-03-23 21:05:31.602 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:31.602 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:31.606 [http-nio-8888-exec-6] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-03-23 21:05:31.606 [http-nio-8888-exec-6] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-03-23 21:05:31.611 [http-nio-8888-exec-6] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 26
+2020-03-23 21:05:31.612 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:31.613 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@7cb299fd
+2020-03-23 21:05:31.614 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:54.608 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:54.608 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/save
+2020-03-23 21:05:54.608 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-03-23 21:05:54.608 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:54.608 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:ids value:2,13
+2020-03-23 21:05:54.608 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:name value:test4
+2020-03-23 21:05:54.608 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:description value:
+2020-03-23 21:05:54.610 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleName - ==>  Preparing: select * from sys_role where name = ?; 
+2020-03-23 21:05:54.610 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleName - ==> Parameters: test4(String)
+2020-03-23 21:05:54.610 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.RoleMapper.findRoleByRoleName - <==      Total: 0
+2020-03-23 21:05:54.611 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.RoleMapper.insertRole - ==>  Preparing: insert into sys_role (name,description) values (?,?); 
+2020-03-23 21:05:54.612 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.RoleMapper.insertRole - ==> Parameters: test4(String), (String)
+2020-03-23 21:05:54.771 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.RoleMapper.insertRole - <==    Updates: 1
+2020-03-23 21:05:54.775 [http-nio-8888-exec-2] DEBUG c.x.c.mapper.RoleMapper.insertRolePermissionBatch - ==>  Preparing: insert into sys_role_permission(role_id,permission_id) values (?,?) , (?,?) 
+2020-03-23 21:05:54.776 [http-nio-8888-exec-2] DEBUG c.x.c.mapper.RoleMapper.insertRolePermissionBatch - ==> Parameters: 7(Integer), 2(String), 7(Integer), 13(String)
+2020-03-23 21:05:54.779 [http-nio-8888-exec-2] DEBUG c.x.c.mapper.RoleMapper.insertRolePermissionBatch - <==    Updates: 2
+2020-03-23 21:05:54.938 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:54.938 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.CURDResult@580c4d48
+2020-03-23 21:05:54.938 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:59.096 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-03-23 21:05:59.096 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-03-23 21:05:59.098 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-03-23 21:05:59.194 [http-nio-8888-exec-7] DEBUG c.x.c.m.P.findPermissionListByUserId - ==>  Preparing: select p.* from t_user u left join sys_user_role ur on u.id = ur.user_id left join sys_role r on ur.role_id = r.id left join sys_role_permission rp on r.id = rp.role_id left join sys_permission p on rp.permission_id = p.id where u.id = ?; 
+2020-03-23 21:05:59.195 [http-nio-8888-exec-7] DEBUG c.x.c.m.P.findPermissionListByUserId - ==> Parameters: 1(Integer)
+2020-03-23 21:05:59.197 [http-nio-8888-exec-7] DEBUG c.x.c.m.P.findPermissionListByUserId - <==      Total: 27
+2020-03-23 21:05:59.295 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:59.295 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/index
+2020-03-23 21:05:59.295 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-03-23 21:05:59.295 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:59.295 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:username value:admin
+2020-03-23 21:05:59.295 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:password value:123456
+2020-03-23 21:05:59.296 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==>  Preparing: select t1.name, t2.id as sub_id, t2.name as sub_name, t2.path as sub_path, t2.authorization_flag as sub_authorization_flag from sys_permission t1 left join sys_permission t2 on t1.id = t2.parent_id where t1.parent_id = 0 order by t1.z_index; 
+2020-03-23 21:05:59.296 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==> Parameters: 
+2020-03-23 21:05:59.300 [http-nio-8888-exec-7] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - <==      Total: 8
+2020-03-23 21:05:59.302 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:59.303 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : index
+2020-03-23 21:05:59.303 [http-nio-8888-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:59.359 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:59.359 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/list
+2020-03-23 21:05:59.359 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:59.359 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:59.360 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:59.360 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : courseorder/list
+2020-03-23 21:05:59.360 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:05:59.546 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:05:59.546 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/listJson
+2020-03-23 21:05:59.546 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:05:59.546 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:05:59.546 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 21:05:59.547 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 21:05:59.548 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==>  Preparing: select count(*) from t_course_order 
+2020-03-23 21:05:59.549 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==> Parameters: 
+2020-03-23 21:05:59.552 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - <==      Total: 1
+2020-03-23 21:05:59.553 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==>  Preparing: select * from t_course_order order by order_date desc limit ?,?; 
+2020-03-23 21:05:59.554 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==> Parameters: 0(Integer), 10(Integer)
+2020-03-23 21:05:59.561 [http-nio-8888-exec-4] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - <==      Total: 10
+2020-03-23 21:05:59.566 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:05:59.567 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@13cfcd21
+2020-03-23 21:05:59.567 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:06:01.407 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:06:01.407 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/list
+2020-03-23 21:06:01.407 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:06:01.407 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:06:01.407 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:06:01.407 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/list
+2020-03-23 21:06:01.407 [http-nio-8888-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:06:01.523 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:06:01.523 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/listJson
+2020-03-23 21:06:01.523 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:06:01.523 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:06:01.523 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 21:06:01.523 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 21:06:01.524 [http-nio-8888-exec-6] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==>  Preparing: select * from sys_role; 
+2020-03-23 21:06:01.524 [http-nio-8888-exec-6] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==> Parameters: 
+2020-03-23 21:06:01.526 [http-nio-8888-exec-6] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - <==      Total: 7
+2020-03-23 21:06:01.527 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:06:01.527 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@619d041
+2020-03-23 21:06:01.527 [http-nio-8888-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:06:20.056 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:06:20.056 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/delete
+2020-03-23 21:06:20.056 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:06:20.057 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:06:20.057 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - name:role_id value:7
+2020-03-23 21:06:20.058 [http-nio-8888-exec-9] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - ==>  Preparing: select permission_id from sys_role_permission where role_id = ?; 
+2020-03-23 21:06:20.058 [http-nio-8888-exec-9] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - ==> Parameters: 7(Integer)
+2020-03-23 21:06:20.060 [http-nio-8888-exec-9] DEBUG c.x.crm.mapper.RoleMapper.findPermissionIdByRoleId - <==      Total: 2
+2020-03-23 21:06:20.062 [http-nio-8888-exec-9] DEBUG c.x.c.m.R.deletePermissionByPermissIdsBatch - ==>  Preparing: delete from sys_role_permission where permission_id in ( ? , ? ) 
+2020-03-23 21:06:20.062 [http-nio-8888-exec-9] DEBUG c.x.c.m.R.deletePermissionByPermissIdsBatch - ==> Parameters: 2(String), 13(String)
+2020-03-23 21:06:20.109 [http-nio-8888-exec-9] DEBUG c.x.c.m.R.deletePermissionByPermissIdsBatch - <==    Updates: 4
+2020-03-23 21:06:20.110 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.deleteRoleByRoleId - ==>  Preparing: delete from sys_role where id = ?; 
+2020-03-23 21:06:20.110 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.deleteRoleByRoleId - ==> Parameters: 7(Integer)
+2020-03-23 21:06:20.134 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.deleteRoleByRoleId - <==    Updates: 1
+2020-03-23 21:06:20.225 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:06:20.235 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.CURDResult@78b19cd6
+2020-03-23 21:06:20.236 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:06:23.638 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-03-23 21:06:23.638 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-03-23 21:06:23.639 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-03-23 21:06:23.735 [http-nio-8888-exec-2] DEBUG c.x.c.m.P.findPermissionListByUserId - ==>  Preparing: select p.* from t_user u left join sys_user_role ur on u.id = ur.user_id left join sys_role r on ur.role_id = r.id left join sys_role_permission rp on r.id = rp.role_id left join sys_permission p on rp.permission_id = p.id where u.id = ?; 
+2020-03-23 21:06:23.736 [http-nio-8888-exec-2] DEBUG c.x.c.m.P.findPermissionListByUserId - ==> Parameters: 1(Integer)
+2020-03-23 21:06:23.738 [http-nio-8888-exec-2] DEBUG c.x.c.m.P.findPermissionListByUserId - <==      Total: 25
+2020-03-23 21:06:23.835 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:06:23.835 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/index
+2020-03-23 21:06:23.835 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-03-23 21:06:23.835 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:06:23.835 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:username value:admin
+2020-03-23 21:06:23.835 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:password value:123456
+2020-03-23 21:06:23.836 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==>  Preparing: select t1.name, t2.id as sub_id, t2.name as sub_name, t2.path as sub_path, t2.authorization_flag as sub_authorization_flag from sys_permission t1 left join sys_permission t2 on t1.id = t2.parent_id where t1.parent_id = 0 order by t1.z_index; 
+2020-03-23 21:06:23.836 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==> Parameters: 
+2020-03-23 21:06:23.838 [http-nio-8888-exec-2] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - <==      Total: 8
+2020-03-23 21:06:23.840 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:06:23.840 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : index
+2020-03-23 21:06:23.840 [http-nio-8888-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:06:23.895 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:06:23.895 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/list
+2020-03-23 21:06:23.895 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:06:23.896 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:06:23.896 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:06:23.896 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : courseorder/list
+2020-03-23 21:06:23.896 [http-nio-8888-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:06:24.049 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:06:24.049 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/courseorder/listJson
+2020-03-23 21:06:24.049 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:06:24.049 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:06:24.049 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 21:06:24.049 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 21:06:24.051 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==>  Preparing: select count(*) from t_course_order 
+2020-03-23 21:06:24.051 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==> Parameters: 
+2020-03-23 21:06:24.061 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - <==      Total: 1
+2020-03-23 21:06:24.062 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==>  Preparing: select * from t_course_order order by order_date desc limit ?,?; 
+2020-03-23 21:06:24.063 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==> Parameters: 0(Integer), 10(Integer)
+2020-03-23 21:06:24.067 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - <==      Total: 10
+2020-03-23 21:06:24.068 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:06:24.069 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@71d39c62
+2020-03-23 21:06:24.069 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:07:30.407 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:07:30.407 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/list
+2020-03-23 21:07:30.407 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:07:30.407 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:07:30.407 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:07:30.407 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : role/list
+2020-03-23 21:07:30.407 [http-nio-8888-exec-8] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:07:30.538 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-03-23 21:07:30.538 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8888/role/listJson
+2020-03-23 21:07:30.538 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-03-23 21:07:30.538 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-03-23 21:07:30.538 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-03-23 21:07:30.538 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-03-23 21:07:30.544 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==>  Preparing: select * from sys_role; 
+2020-03-23 21:07:30.545 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - ==> Parameters: 
+2020-03-23 21:07:30.548 [http-nio-8888-exec-9] DEBUG com.xb.crm.mapper.RoleMapper.findAllRoles - <==      Total: 6
+2020-03-23 21:07:30.549 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-03-23 21:07:30.550 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : com.xb.crm.model.PageResult@4d1b6f65
+2020-03-23 21:07:30.550 [http-nio-8888-exec-9] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-03-23 21:07:35.105 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-23 21:07:35.121 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
