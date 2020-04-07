@@ -62,10 +62,22 @@ public class UserInfoController {
 
     }
 
+    @RequestMapping("/save")
+    @ResponseBody
+    public Result save(User user){
+        Result result = new Result();
+        try {
+        result = userInfoService.updatePasswordByUserId(user);
+        } catch (Exception e) {
+            return ResultUtil.error(result.getMessage(),result);
+        }
+        return ResultUtil.success();
+    }
+
     @RequestMapping(value = "/uploadHead", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     @ResponseBody
     public Result uploadImg(
-            @RequestParam(value = "file") MultipartFile[] files,  //这样接收文件
+            @RequestParam(value = "file") MultipartFile[] files,
             String userId,
             HttpServletRequest request
     ) {

@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<div class="row main" style="min-height:500px">
+<div class="row main" style="min-height:280px">
     <div class="col-md-12">
         <h2 class="top_title"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>头像上传</h2>
         <div class="row" style="margin-top:30px;">
@@ -35,13 +35,13 @@
     </div>
 </div>
 <form class="layui-form" action="" id="userForm">
-
+    <h2 class="top_title"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>账号信息修改</h2>
 <div class="layui-form-item">
     <div class="layui-inline">
         <label class="layui-form-label">用户名</label>
         <div class="layui-input-inline">
-            <input type="hidden" id="id" name="id" th:value="${user.id}">
-            <input type="text" lay-verify="required" name="username" th:value="${user.username}"  autocomplete="off" class="layui-input">
+            <input type="hidden" id="id" name="id"  th:value="${user.id}">
+            <input type="text" lay-verify="required" disabled name="username" th:value="${user.username}"  autocomplete="off" class="layui-input">
         </div>
     </div>
 </div>
@@ -50,7 +50,7 @@
     <div class="layui-inline">
         <label class="layui-form-label">密码</label>
         <div class="layui-input-inline">
-            <input type="text" lay-verify="required" name="password" th:value="${user.password}"  autocomplete="off" class="layui-input">
+            <input type="text" lay-verify="required"  id="password" name="password" th:value="${user.password}"  autocomplete="off" class="layui-input">
         </div>
     </div>
 
@@ -67,11 +67,9 @@
 <div class="layui-form-item">
     <div class="layui-input-block">
         <button type="button" onclick="doSave();" class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
-        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
 </div>
 </form>
-
 
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script th:inline="javascript">
@@ -84,19 +82,19 @@
 
     })
 
-
+    //表单中设置为disable属性的标签jquery不会获取它们的值
     function doSave() {
         var requestData = $("#userForm").serialize();
 
-        $.post("/user/save",requestData,function (responseData) {
+        $.post("/userInfo/save",requestData,function (responseData) {
             console.log(responseData);
-            if(responseData.success == 1){
+            if(responseData.code == 200){
                 layer.alert("修改成功",{yes:function () {
-                    parent.layer.closeAll();
+                     layer.closeAll();
                 }});
             }else{
-                layer.alert("修改失败:"+responseData.msg,{yes:function () {
-                    parent.layer.closeAll();
+                layer.alert("修改失败:"+responseData.message,{yes:function () {
+                    layer.closeAll();
                 }});
             }
         });

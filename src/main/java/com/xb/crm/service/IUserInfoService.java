@@ -2,6 +2,7 @@ package com.xb.crm.service;
 
 import com.xb.crm.model.HeadPhoto;
 import com.xb.crm.model.Result;
+import com.xb.crm.model.User;
 
 /**
  * @Description:
@@ -15,4 +16,6 @@ public interface IUserInfoService {
     public Result saveFilePath(String newName, String userId);
 
     public HeadPhoto findHeadPhotoByUserId(int userId);
+
+    public Result updatePasswordByUserId(User user);
 }

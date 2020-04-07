@@ -3,6 +3,7 @@ package com.xb.crm.service.impl;
 import com.xb.crm.mapper.UserInfoMapper;
 import com.xb.crm.model.HeadPhoto;
 import com.xb.crm.model.Result;
+import com.xb.crm.model.User;
 import com.xb.crm.service.IUserInfoService;
 import com.xb.crm.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,16 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Override
     public HeadPhoto findHeadPhotoByUserId(int userId) {
         return userInfoMapper.findHeadPhotoByUserId(userId);
+    }
+
+    @Override
+    public Result updatePasswordByUserId(User user) {
+        Result result = new Result();
+        try {
+            userInfoMapper.updatePasswordByUserId(user);
+        } catch (Exception e) {
+            return ResultUtil.error(e.toString(),null);
+        }
+        return ResultUtil.success();
     }
 }

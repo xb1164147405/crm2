@@ -14,4 +14,8 @@
     <delete id="deleteHeadPhotoByUserId" parameterType="int">
         delete from sys_head_photo where user_id = #{userId};
     </delete>
+
+    <update id="updatePasswordByUserId" parameterType="user">
+        update t_user set password = #{password} where id = #{id};
+    </update>
 </mapper>

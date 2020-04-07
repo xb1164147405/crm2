@@ -22,4 +22,6 @@ public interface UserInfoMapper {
     public void insertHeadPhoto(String newName, Integer userId);
 
     public void deleteHeadPhotoByUserId(Integer userId);
+
+    public void updatePasswordByUserId(User user);
 }
