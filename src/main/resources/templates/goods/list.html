@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>商品列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" th:href="@{/layuiadmin/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuiadmin/style/admin.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuiadmin/style/template.css}" media="all">
+    <script type="text/javascript" th:src="@{/zTree/js/jquery-1.4.4.min.js}"></script>
+</head>
+<body>
+
+<div class="layui-btn-group" style="padding-left: 20px;">
+    <button class="layui-btn" type="button" onclick="add()">增加</button>
+    <button class="layui-btn layui-btn-normal">编辑</button>
+    <button class="layui-btn layui-btn-danger">删除</button>
+</div>
+<div class="layui-fluid layadmin-cmdlist-fluid">
+    <div class="layui-row layui-col-space30">
+        <div class="layui-col-md2 layui-col-sm4" th:each="courseCategory : ${allCourseCategory}">
+            <div class="cmdlist-container">
+                <a href="javascript:;">
+                    <img th:src="@{'/upload/'+${courseCategory.photo_name}}" th:onclick="'javascript:editPhoto(\''+${courseCategory.id}+'\');'">
+                </a>
+                <a href="javascript:;">
+                    <div class="cmdlist-text">
+                        <input type="hidden" th:value="${courseCategory.id}">
+                        <p class="info" th:text="${courseCategory.course_name}"></p>
+                        <div class="price">
+                            <b th:text="${courseCategory.price}+'RMB'"></b>
+                            <p th:text="'库存量：'+${courseCategory.inventory}">
+                            </p>
+                            <span class="flow">
+                            <i class="layui-icon layui-icon-rate"></i>
+                                <!--编辑图标-->
+                                    <i class="layui-icon" lay-tips="编辑该商品" id="edit-icon" th:onclick="'javascript:edit(\''+${courseCategory.id}+'\');'">&#xe642;</i>
+                                <!--删除图标-->
+                            <i class="layui-icon" lay-tips="删除该商品" th:onclick="'javascript:deleteGoods(\''+${courseCategory.id}+'\');'">&#xe640;</i>
+                    </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="layui-col-md12 layui-col-sm12">
+            <div id="demo0"></div>
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/layuiadmin/layui/layui.js}"></script>
+<script>
+    layui.config({
+        base: '/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index']);
+    var layer;
+    layui.use(['laypage', 'layer'], function () {
+        var laypage = layui.laypage;
+        layer = layui.layer;
+        //总页数低于页码总数
+        laypage.render({
+            elem: 'demo0'
+            , count: 50 //数据总数
+        });
+
+
+    });
+
+    function add() {
+        parent.layer.open({
+            type: 2,// 0：信息框，默认 1：页面层 2：iframe层 3：加载层 4：tips层
+            offset: 'auto',
+            title: '添加商品',
+            content: '/goods/add',
+            area: ['1100px', '650px'],
+            btn: '关闭全部',
+            btnAlign: 'c',//表示按钮居中显示
+            yes: function () {
+                parent.layer.closeAll();
+            }
+        });
+    }
+
+
+
+    function edit(id) {
+        console.log(id);
+        parent.layer.open({
+            type: 2,// 0：信息框，默认 1：页面层 2：iframe层 3：加载层 4：tips层
+            offset: 'auto',
+            title: '编辑商品',
+            content: '/goods/edit?id=' + id,
+            area: ['1100px', '650px'],
+            btn: '关闭全部',
+            btnAlign: 'c',//表示按钮居中显示
+            yes: function () {
+                parent.layer.closeAll();
+            }
+        });
+    }
+
+    function editPhoto(id) {
+        console.log(id);
+        parent.layer.open({
+            type: 2,// 0：信息框，默认 1：页面层 2：iframe层 3：加载层 4：tips层
+            offset: 'auto',
+            title: '编辑商品',
+            content: '/goods/editPhoto?id=' + id,
+            area: ['1100px', '650px'],
+            btn: '关闭全部',
+            btnAlign: 'c',//表示按钮居中显示
+            yes: function () {
+                parent.layer.closeAll();
+            }
+        });
+    }
+
+    function deleteGoods(id) {
+        console.log(id);
+        // parent.layer.open({
+        layer.open({
+            type: 1,// 0：信息框，默认 1：页面层 2：iframe层 3：加载层 4：tips层
+            offset: 'auto',
+            title: '删除商品',
+            content: '请确认是否删除该商品?',
+            area: ['200px', '100px'],
+            btn: ['确定', '取消'], //按钮组
+            btnAlign: 'c',//表示按钮居中显示
+            btn1: function () {
+                // layer.close(index01);
+                $.post("/goods/deleteGoods", {"id":id}, function (responseData) {
+                    if (responseData.code == 200) {
+                        layer.alert("删除成功", {
+                            yes: function () {
+                                layer.closeAll();
+                                location.reload();
+                            }
+                        })
+                    } else {
+                        layer.alert("删除失败" + responseData.data, {
+                            yes: function () {
+                                layer.closeAll();
+                            }
+                        })
+                    }
+                });
+            },
+            btn2: function () {
+                layer.closeAll();
+            }
+        });
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+2020-04-10 08:53:14.047 [restartedMain] INFO  com.xb.crm.CrmApplication - Starting CrmApplication on DESKTOP-DNHIG0H with PID 19448 (D:\graduationProject\springbootProject\crm\target\classes started by Administrator in D:\graduationProject\springbootProject\crm)
+2020-04-10 08:53:14.058 [restartedMain] INFO  com.xb.crm.CrmApplication - No active profile set, falling back to default profiles: default
+2020-04-10 08:53:14.397 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-04-10 08:53:14.398 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-04-10 08:53:17.108 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b0efabb5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-10 08:53:17.224 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2020-04-10 08:53:18.027 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8889 (http)
+2020-04-10 08:53:18.045 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8889"]
+2020-04-10 08:53:18.046 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-04-10 08:53:18.046 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-04-10 08:53:18.232 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-10 08:53:18.233 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3834 ms
+2020-04-10 08:53:18.488 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-04-10 08:53:19.022 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-10 08:53:20.157 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==>  Preparing: select id,name,path,authorization_flag,parent_id,is_menu,z_index from sys_permission order by z_index,is_menu desc; 
+2020-04-10 08:53:20.212 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - ==> Parameters: 
+2020-04-10 08:53:20.259 [restartedMain] DEBUG c.xb.crm.mapper.PermissionMapper.findAllPermission - <==      Total: 30
+2020-04-10 08:53:20.388 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40574521, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b079b38, org.springframework.security.web.header.HeaderWriterFilter@3547168f, org.springframework.security.web.authentication.logout.LogoutFilter@33dd2e61, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@16ecbb1b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5779ed87, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ceeec99, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@239da97a, org.springframework.security.web.session.SessionManagementFilter@3b39f4d5, org.springframework.security.web.access.ExceptionTranslationFilter@1d1467e5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c5e8ad4]
+2020-04-10 08:53:20.631 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-10 08:53:20.766 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-04-10 08:53:22.077 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2020-04-10 08:53:22.113 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8889"]
+2020-04-10 08:53:22.145 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8889 (http) with context path ''
+2020-04-10 08:53:22.148 [restartedMain] INFO  com.xb.crm.CrmApplication - Started CrmApplication in 9.781 seconds (JVM running for 13.147)
+2020-04-10 08:53:35.689 [http-nio-8889-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie - A cookie header was received [1586229900,1586351127,1586396823] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-04-10 08:53:35.701 [http-nio-8889-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-10 08:53:35.701 [http-nio-8889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-04-10 08:53:35.711 [http-nio-8889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2020-04-10 08:53:35.810 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:53:35.811 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/login
+2020-04-10 08:53:35.811 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:53:35.811 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:53:35.814 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:53:35.814 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : login3
+2020-04-10 08:53:35.814 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:53:36.250 [http-nio-8889-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:53:36.250 [http-nio-8889-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/login
+2020-04-10 08:53:36.250 [http-nio-8889-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:53:36.250 [http-nio-8889-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:53:36.251 [http-nio-8889-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:53:36.251 [http-nio-8889-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : login3
+2020-04-10 08:53:36.251 [http-nio-8889-exec-4] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:53:36.420 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:53:36.420 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/login
+2020-04-10 08:53:36.420 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:53:36.420 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:53:36.420 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:53:36.420 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : login3
+2020-04-10 08:53:36.420 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:53:40.976 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-04-10 08:53:40.977 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-04-10 08:53:40.983 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-04-10 08:53:41.078 [http-nio-8889-exec-2] DEBUG c.x.c.m.P.findPermissionListByUserId - ==>  Preparing: select p.* from t_user u left join sys_user_role ur on u.id = ur.user_id left join sys_role r on ur.role_id = r.id left join sys_role_permission rp on r.id = rp.role_id left join sys_permission p on rp.permission_id = p.id where u.id = ?; 
+2020-04-10 08:53:41.079 [http-nio-8889-exec-2] DEBUG c.x.c.m.P.findPermissionListByUserId - ==> Parameters: 1(Integer)
+2020-04-10 08:53:41.085 [http-nio-8889-exec-2] DEBUG c.x.c.m.P.findPermissionListByUserId - <==      Total: 32
+2020-04-10 08:53:41.202 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:53:41.202 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/index
+2020-04-10 08:53:41.202 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-04-10 08:53:41.202 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:53:41.202 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:username value:admin
+2020-04-10 08:53:41.202 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:password value:123456
+2020-04-10 08:53:41.206 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==>  Preparing: select t1.name, t2.id as sub_id, t2.name as sub_name, t2.path as sub_path, t2.authorization_flag as sub_authorization_flag from sys_permission t1 left join sys_permission t2 on t1.id = t2.parent_id where t1.parent_id = 0 order by t1.z_index; 
+2020-04-10 08:53:41.207 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==> Parameters: 
+2020-04-10 08:53:41.213 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - <==      Total: 8
+2020-04-10 08:53:41.216 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-04-10 08:53:41.216 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-04-10 08:53:41.218 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-04-10 08:53:41.223 [http-nio-8889-exec-2] DEBUG c.x.c.mapper.UserInfoMapper.findHeadPhotoByUserId - ==>  Preparing: select * from sys_head_photo where user_id = ?; 
+2020-04-10 08:53:41.223 [http-nio-8889-exec-2] DEBUG c.x.c.mapper.UserInfoMapper.findHeadPhotoByUserId - ==> Parameters: 1(Integer)
+2020-04-10 08:53:41.225 [http-nio-8889-exec-2] DEBUG c.x.c.mapper.UserInfoMapper.findHeadPhotoByUserId - <==      Total: 1
+2020-04-10 08:53:41.227 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:53:41.227 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : index
+2020-04-10 08:53:41.227 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:53:41.404 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:53:41.405 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/courseorder/list
+2020-04-10 08:53:41.405 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:53:41.405 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:53:41.407 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:53:41.407 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : courseorder/list
+2020-04-10 08:53:41.407 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:53:41.854 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:53:41.854 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/courseorder/listJson
+2020-04-10 08:53:41.855 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:53:41.855 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:53:41.855 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-04-10 08:53:41.855 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-04-10 08:53:41.921 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==>  Preparing: select count(*) from t_course_order 
+2020-04-10 08:53:41.921 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==> Parameters: 
+2020-04-10 08:53:41.925 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - <==      Total: 1
+2020-04-10 08:53:41.926 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==>  Preparing: select * from t_course_order order by order_date desc limit ?,?; 
+2020-04-10 08:53:41.926 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==> Parameters: 0(Integer), 10(Integer)
+2020-04-10 08:53:41.943 [http-nio-8889-exec-2] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - <==      Total: 10
+2020-04-10 08:53:41.946 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:53:41.946 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : PageResult{code=0, msg='null', count=86, data=[CourseOrder{uuid='55e4d0ed-7941-11ea-8891-d017c217289e', order_id='55e4d131-7941-11ea-8891-d017c217289e', name='魏宇', wechat_no='123456', wechat_mark='憨憨', qq_no='123456', tel='123456', course_name='Angular零基础', course_price='288', order_date='2020-04-21', update_datetime=Wed Apr 08 10:33:29 CST 2020, remark='null'}, CourseOrder{uuid='e63c1df7-55ea-11ea-aaf5-d017c217289e', order_id='e63c2080-55ea-11ea-aaf5-d017c217289e', name='王麻子', wechat_no='123456', wechat_mark='麻子', qq_no='12356', tel='1235678', course_name='深入浅出JVM虚拟机', course_price='399', order_date='2020-02-23', update_datetime=Sun Feb 23 11:16:36 CST 2020, remark='null'}, CourseOrder{uuid='6acb991e-55ec-11ea-aaf5-d017c217289e', order_id='6acb9939-55ec-11ea-aaf5-d017c217289e', name='李四', wechat_no='123456', wechat_mark='小四', qq_no='123456', tel='123456', course_name='SpringBoot从入门到放弃', course_price='88', order_date='2020-02-23', update_datetime=Sun Feb 23 11:27:28 CST 2020, remark='null'}, CourseOrder{uuid='e20d465b-55ec-11ea-aaf5-d017c217289e', order_id='e20d4677-55ec-11ea-aaf5-d017c217289e', name='麻子', wechat_no='123', wechat_mark='123', qq_no='123', tel='123', course_name='SpringBoot从入门到放弃', course_price='480', order_date='2020-02-23', update_datetime=Sun Feb 23 11:30:48 CST 2020, remark='null'}, CourseOrder{uuid='626236f5-4d47-11e9-a99d-d8c4970eba84', order_id='6262370b-4d47-11e9-a99d-d8c4970eba84', name='梁同学', wechat_no='ADc***', wechat_mark='梁同学', qq_no='dsad', tel='ddd', course_name='MySQL删库跑路教程', course_price='699', order_date='2019-01-13', update_datetime=Sat Mar 23 16:40:49 CST 2019, remark='null'}, CourseOrder{uuid='3fed7af7-4d47-11e9-a99d-d8c4970eba84', order_id='3fed7b09-4d47-11e9-a99d-d8c4970eba84', name='杨同学', wechat_no='lov***', wechat_mark='杨同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-10', update_datetime=Sat Mar 23 16:39:51 CST 2019, remark=''}, CourseOrder{uuid='1da46000-4d47-11e9-a99d-d8c4970eba84', order_id='1da46026-4d47-11e9-a99d-d8c4970eba84', name='史同学', wechat_no='shi***', wechat_mark='史同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-06', update_datetime=Sat Mar 23 16:38:54 CST 2019, remark=''}, CourseOrder{uuid='ca952cbe-4d46-11e9-a99d-d8c4970eba84', order_id='ca952d11-4d46-11e9-a99d-d8c4970eba84', name='康同学', wechat_no='KJQ***', wechat_mark='康同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-01', update_datetime=Sat Mar 23 16:36:34 CST 2019, remark=''}, CourseOrder{uuid='e64da4bc-4d46-11e9-a99d-d8c4970eba84', order_id='e64da4d2-4d46-11e9-a99d-d8c4970eba84', name='薛同学', wechat_no='XYU***', wechat_mark='薛同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-01', update_datetime=Sat Mar 23 16:37:21 CST 2019, remark=''}, CourseOrder{uuid='1a3242e6-4d30-11e9-a99d-d8c4970eba84', order_id='1a324304-4d30-11e9-a99d-d8c4970eba84', name='顾同学', wechat_no='Big***', wechat_mark='顾同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2018-12-31', update_datetime=Sat Mar 23 13:54:10 CST 2019, remark=''}]}
+2020-04-10 08:53:41.946 [http-nio-8889-exec-2] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:53:45.442 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:53:45.442 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/goods/list
+2020-04-10 08:53:45.442 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:53:45.442 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:53:45.449 [http-nio-8889-exec-7] DEBUG c.x.c.m.CourseCategoryMapper.findAllCourseCategory - ==>  Preparing: select * from t_course_category; 
+2020-04-10 08:53:45.450 [http-nio-8889-exec-7] DEBUG c.x.c.m.CourseCategoryMapper.findAllCourseCategory - ==> Parameters: 
+2020-04-10 08:53:45.455 [http-nio-8889-exec-7] DEBUG c.x.c.m.CourseCategoryMapper.findAllCourseCategory - <==      Total: 7
+2020-04-10 08:53:45.456 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:53:45.456 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : goods/list
+2020-04-10 08:53:45.456 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:56:24.940 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:56:24.940 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/goods/add
+2020-04-10 08:56:24.940 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:56:24.940 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:56:24.941 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:56:24.941 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : goods/add
+2020-04-10 08:56:24.941 [http-nio-8889-exec-3] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/goods/save
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:course_name value:11
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:publish_datetime value:2020-03-11
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:price value:11
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:description value:...
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:course_author value:11
+2020-04-10 08:56:46.536 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:inventory value:30
+2020-04-10 08:57:13.664 [http-nio-8889-exec-7] DEBUG c.x.c.m.CourseCategoryMapper.insertCourseCategory - ==>  Preparing: insert into t_course_category( course_name, publish_datetime, price, course_author, photo_name, inventory, description) values ( ?,?, ?,?,?, ?,?); 
+2020-04-10 08:57:13.668 [http-nio-8889-exec-7] DEBUG c.x.c.m.CourseCategoryMapper.insertCourseCategory - ==> Parameters: 11(String), 2020-03-11 00:00:00.0(Timestamp), 11.0(Double), 11(String), 1276F25081024B4292D335EB965F0830.jpg(String), 30(Integer), ...(String)
+2020-04-10 08:57:13.671 [http-nio-8889-exec-7] DEBUG c.x.c.m.CourseCategoryMapper.insertCourseCategory - <==    Updates: 1
+2020-04-10 08:57:13.822 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:57:13.822 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : Result{code='200', message='成功', data=商品信息插入或修改成功！}
+2020-04-10 08:57:13.822 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:57:24.471 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-04-10 08:57:24.472 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-04-10 08:57:24.473 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-04-10 08:57:24.568 [http-nio-8889-exec-5] DEBUG c.x.c.m.P.findPermissionListByUserId - ==>  Preparing: select p.* from t_user u left join sys_user_role ur on u.id = ur.user_id left join sys_role r on ur.role_id = r.id left join sys_role_permission rp on r.id = rp.role_id left join sys_permission p on rp.permission_id = p.id where u.id = ?; 
+2020-04-10 08:57:24.568 [http-nio-8889-exec-5] DEBUG c.x.c.m.P.findPermissionListByUserId - ==> Parameters: 1(Integer)
+2020-04-10 08:57:24.570 [http-nio-8889-exec-5] DEBUG c.x.c.m.P.findPermissionListByUserId - <==      Total: 32
+2020-04-10 08:57:24.666 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:57:24.666 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/index
+2020-04-10 08:57:24.666 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : POST
+2020-04-10 08:57:24.666 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:57:24.666 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - name:username value:admin
+2020-04-10 08:57:24.667 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - name:password value:123456
+2020-04-10 08:57:24.667 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==>  Preparing: select t1.name, t2.id as sub_id, t2.name as sub_name, t2.path as sub_path, t2.authorization_flag as sub_authorization_flag from sys_permission t1 left join sys_permission t2 on t1.id = t2.parent_id where t1.parent_id = 0 order by t1.z_index; 
+2020-04-10 08:57:24.667 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - ==> Parameters: 
+2020-04-10 08:57:24.669 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.PermissionMapper.findAllMenus - <==      Total: 8
+2020-04-10 08:57:24.671 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==>  Preparing: select * from t_user where username = ?; 
+2020-04-10 08:57:24.671 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - ==> Parameters: admin(String)
+2020-04-10 08:57:24.671 [http-nio-8889-exec-5] DEBUG com.xb.crm.mapper.UserMapper.findUserByUsername - <==      Total: 1
+2020-04-10 08:57:24.672 [http-nio-8889-exec-5] DEBUG c.x.c.mapper.UserInfoMapper.findHeadPhotoByUserId - ==>  Preparing: select * from sys_head_photo where user_id = ?; 
+2020-04-10 08:57:24.673 [http-nio-8889-exec-5] DEBUG c.x.c.mapper.UserInfoMapper.findHeadPhotoByUserId - ==> Parameters: 1(Integer)
+2020-04-10 08:57:24.674 [http-nio-8889-exec-5] DEBUG c.x.c.mapper.UserInfoMapper.findHeadPhotoByUserId - <==      Total: 1
+2020-04-10 08:57:24.674 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:57:24.675 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : index
+2020-04-10 08:57:24.675 [http-nio-8889-exec-5] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:57:24.732 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:57:24.732 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/courseorder/list
+2020-04-10 08:57:24.732 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:57:24.732 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:57:24.732 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:57:24.732 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : courseorder/list
+2020-04-10 08:57:24.733 [http-nio-8889-exec-6] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:57:24.915 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:57:24.915 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/courseorder/listJson
+2020-04-10 08:57:24.915 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:57:24.915 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:57:24.915 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:page value:1
+2020-04-10 08:57:24.915 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - name:limit value:10
+2020-04-10 08:57:24.916 [http-nio-8889-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==>  Preparing: select count(*) from t_course_order 
+2020-04-10 08:57:24.917 [http-nio-8889-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - ==> Parameters: 
+2020-04-10 08:57:24.919 [http-nio-8889-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findCountByMap - <==      Total: 1
+2020-04-10 08:57:24.921 [http-nio-8889-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==>  Preparing: select * from t_course_order order by order_date desc limit ?,?; 
+2020-04-10 08:57:24.921 [http-nio-8889-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - ==> Parameters: 0(Integer), 10(Integer)
+2020-04-10 08:57:24.931 [http-nio-8889-exec-7] DEBUG com.xb.crm.mapper.CourseOrderMapper.findListByMap - <==      Total: 10
+2020-04-10 08:57:24.935 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:57:24.936 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : PageResult{code=0, msg='null', count=86, data=[CourseOrder{uuid='55e4d0ed-7941-11ea-8891-d017c217289e', order_id='55e4d131-7941-11ea-8891-d017c217289e', name='魏宇', wechat_no='123456', wechat_mark='憨憨', qq_no='123456', tel='123456', course_name='Angular零基础', course_price='288', order_date='2020-04-21', update_datetime=Wed Apr 08 10:33:29 CST 2020, remark='null'}, CourseOrder{uuid='e63c1df7-55ea-11ea-aaf5-d017c217289e', order_id='e63c2080-55ea-11ea-aaf5-d017c217289e', name='王麻子', wechat_no='123456', wechat_mark='麻子', qq_no='12356', tel='1235678', course_name='深入浅出JVM虚拟机', course_price='399', order_date='2020-02-23', update_datetime=Sun Feb 23 11:16:36 CST 2020, remark='null'}, CourseOrder{uuid='6acb991e-55ec-11ea-aaf5-d017c217289e', order_id='6acb9939-55ec-11ea-aaf5-d017c217289e', name='李四', wechat_no='123456', wechat_mark='小四', qq_no='123456', tel='123456', course_name='SpringBoot从入门到放弃', course_price='88', order_date='2020-02-23', update_datetime=Sun Feb 23 11:27:28 CST 2020, remark='null'}, CourseOrder{uuid='e20d465b-55ec-11ea-aaf5-d017c217289e', order_id='e20d4677-55ec-11ea-aaf5-d017c217289e', name='麻子', wechat_no='123', wechat_mark='123', qq_no='123', tel='123', course_name='SpringBoot从入门到放弃', course_price='480', order_date='2020-02-23', update_datetime=Sun Feb 23 11:30:48 CST 2020, remark='null'}, CourseOrder{uuid='626236f5-4d47-11e9-a99d-d8c4970eba84', order_id='6262370b-4d47-11e9-a99d-d8c4970eba84', name='梁同学', wechat_no='ADc***', wechat_mark='梁同学', qq_no='dsad', tel='ddd', course_name='MySQL删库跑路教程', course_price='699', order_date='2019-01-13', update_datetime=Sat Mar 23 16:40:49 CST 2019, remark='null'}, CourseOrder{uuid='3fed7af7-4d47-11e9-a99d-d8c4970eba84', order_id='3fed7b09-4d47-11e9-a99d-d8c4970eba84', name='杨同学', wechat_no='lov***', wechat_mark='杨同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-10', update_datetime=Sat Mar 23 16:39:51 CST 2019, remark=''}, CourseOrder{uuid='1da46000-4d47-11e9-a99d-d8c4970eba84', order_id='1da46026-4d47-11e9-a99d-d8c4970eba84', name='史同学', wechat_no='shi***', wechat_mark='史同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-06', update_datetime=Sat Mar 23 16:38:54 CST 2019, remark=''}, CourseOrder{uuid='ca952cbe-4d46-11e9-a99d-d8c4970eba84', order_id='ca952d11-4d46-11e9-a99d-d8c4970eba84', name='康同学', wechat_no='KJQ***', wechat_mark='康同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-01', update_datetime=Sat Mar 23 16:36:34 CST 2019, remark=''}, CourseOrder{uuid='e64da4bc-4d46-11e9-a99d-d8c4970eba84', order_id='e64da4d2-4d46-11e9-a99d-d8c4970eba84', name='薛同学', wechat_no='XYU***', wechat_mark='薛同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2019-01-01', update_datetime=Sat Mar 23 16:37:21 CST 2019, remark=''}, CourseOrder{uuid='1a3242e6-4d30-11e9-a99d-d8c4970eba84', order_id='1a324304-4d30-11e9-a99d-d8c4970eba84', name='顾同学', wechat_no='Big***', wechat_mark='顾同学', qq_no='', tel='', course_name='2018Java全套课程', course_price='699', order_date='2018-12-31', update_datetime=Sat Mar 23 13:54:10 CST 2019, remark=''}]}
+2020-04-10 08:57:24.936 [http-nio-8889-exec-7] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 08:57:25.840 [http-nio-8889-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------start request----------------
+2020-04-10 08:57:25.840 [http-nio-8889-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - URL : http://127.0.0.1:8889/goods/list
+2020-04-10 08:57:25.840 [http-nio-8889-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - HTTP_METHOD : GET
+2020-04-10 08:57:25.840 [http-nio-8889-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - IP : 127.0.0.1
+2020-04-10 08:57:25.841 [http-nio-8889-exec-1] DEBUG c.x.c.m.CourseCategoryMapper.findAllCourseCategory - ==>  Preparing: select * from t_course_category; 
+2020-04-10 08:57:25.841 [http-nio-8889-exec-1] DEBUG c.x.c.m.CourseCategoryMapper.findAllCourseCategory - ==> Parameters: 
+2020-04-10 08:57:25.842 [http-nio-8889-exec-1] DEBUG c.x.c.m.CourseCategoryMapper.findAllCourseCategory - <==      Total: 8
+2020-04-10 08:57:25.843 [http-nio-8889-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------response----------------
+2020-04-10 08:57:25.843 [http-nio-8889-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - RESPONSE : goods/list
+2020-04-10 08:57:25.843 [http-nio-8889-exec-1] INFO  com.xb.crm.web.config.WebLogAspect - ---------------end request----------------
+2020-04-10 18:58:17.955 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-10 18:58:18.002 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

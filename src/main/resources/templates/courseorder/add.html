@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <script type="text/javascript" th:src="@{/zTree/js/jquery-1.4.4.min.js}"></script>
     <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
 </head>
 <body>
@@ -52,7 +53,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">购买课程</label>
             <div class="layui-input-inline">
-                    <select name="course_name" lay-verify="required" lay-search="">
+                    <select name="course_name" id="course_name" lay-filter="test"  lay-verify="required" lay-search="">
                         <option value="">直接选择或搜索选择</option>
                         <option th:each="category : ${courseCategoryList}"
                                 th:value="${category.course_name}"
@@ -66,7 +67,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">购买价格</label>
             <div class="layui-input-inline">
-                <input type="text" name="course_price"  autocomplete="off" class="layui-input">
+                <input type="text" name="course_price" id="course_price"  autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-inline">
@@ -88,19 +89,35 @@
 
 
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-<script>
+<script th:inline="javascript">
     //声明变量通过layui获取对象 才能使用jquery
-    var $,layer;
+    // var $,layer;
+    var layer;
     layui.use(['form','laydate'], function(){
         var laydate = layui.laydate;
-        $ = layui.jquery;
+        var form = layui.form;
         layer = layui.layer;
         //日期
         laydate.render({
             elem: '#order_date'
         });
+
+
+        //下拉框选中触发事件
+        form.on('select(test)', function(data){
+            console.log(data.value);
+            var goodsName = data.value;
+            $.post("/goods/findPrice",{courseName:goodsName},function (responseData) {
+                console.log(responseData);
+                if (responseData.code == 200){
+                    $("#course_price").val(responseData.data);
+                }
+            },"json")
+        });
+
     })
-    
+
+
     function doSave() {
         // alert("xxx")
         // url	必需规定把请求发送到哪个 URL

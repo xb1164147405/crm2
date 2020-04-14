@@ -94,7 +94,7 @@ public class UserInfoController {
             int size = (int) file.getSize();
             System.out.println(fileName + "-->" + size);
             if(file.isEmpty()){
-                return ResultUtil.error("文件已存在！",null);
+                return ResultUtil.error("文件为空！",null);
             }else{
                 String savePath = path + "/" + newName;
                 File dest = new File(savePath);
@@ -111,9 +111,11 @@ public class UserInfoController {
             }
             Result result = userInfoService.saveFilePath(newName,userId);
             if (Objects.equals(result.getCode(),ResultUtil.ERROR)){
-                return ResultUtil.error("userId:" + userId + "。头像插入失败",result);
+                return ResultUtil.error("userId:" + userId + "头像插入失败",result);
             }
         }
         return ResultUtil.success("上传成功。");
     }
+
+
 }

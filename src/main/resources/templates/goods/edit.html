@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuiadmin/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuiadmin/style/admin.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuiadmin/style/template.css}" media="all">
+    <script type="text/javascript" th:src="@{/zTree/js/jquery-1.4.4.min.js}"></script>
+    <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+</head>
+<body>
+<!--<div class="layui-col-md12">-->
+<!---->
+<!--</div>-->
+<form class="layui-form" action="" id="form1">
+    <!--<div class="layui-form-item">-->
+        <!--<div class="layui-upload" style="padding-left: 20px;">-->
+            <!--<button type="button" class="layui-btn" id="test-upload-normal">上传商品图片</button>-->
+            <!--<div class="layui-upload-list">-->
+                <!--<img class="layui-upload-img" id="test-upload-normal-img">-->
+                <!--<p id="test-upload-demoText"></p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">商品名称</label>
+            <div class="layui-input-inline">
+                <input type="hidden" id="id" name="id" th:value="${courseCategory.id}">
+                <input type="text" th:value="${courseCategory.course_name}" name="course_name" id="course_name" lay-verify="required" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">作者</label>
+            <div class="layui-input-inline">
+                <input type="text" th:value="${courseCategory.course_author}" name="course_author" id="course_author" lay-verify="required" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">商品价格</label>
+            <div class="layui-input-inline">
+                <input type="text" th:value="${courseCategory.price}" name="price" id="price" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">商品库存</label>
+            <div class="layui-input-inline">
+                <input type="text" th:value="${courseCategory.inventory}" name="inventory" id="inventory" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">商品描述</label>
+            <div class="layui-input-inline">
+                <input type="text" th:value="${courseCategory.description}" name="description" id="description" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">出版时间</label>
+            <div class="layui-input-inline">
+                <input type="text" th:value="${courseCategory.publish_datetime}" name="publish_datetime" id="publish_datetime" lay-verify="date"
+                       placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="button" id="sub" onclick="doSave();" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交
+            </button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+
+</form>
+
+
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script th:inline="javascript">
+    //声明变量通过layui获取对象 才能使用jquery
+    // var $,layer;
+    var layer, upload;
+    layui.use(['form', 'laydate', 'upload'], function () {
+        var laydate = layui.laydate;
+        var form = layui.form;
+        layer = layui.layer;
+        upload = layui.upload;
+        //日期
+        laydate.render({
+            elem: '#publish_datetime'
+        });
+
+
+
+    })
+
+
+    function doSave() {
+
+        var requestData = $("#form1").serialize();//获取表单中的值
+
+        $.post("/goods/editGoodsInfo", requestData, function (responseData) {
+            if (responseData.code == 200) {
+                layer.alert("修改成功", {
+                    yes: function () {
+                        //点击确定后要发生的事件 即点击确定后关闭添加窗口
+                        //TODO 虽然关闭但是页面没有马上 刷新 更新保存的数据
+                        parent.layer.closeAll();
+                    }
+                })
+            } else {
+                //TODO 添加失败后操作
+                layer.alert("修改失败："+ responseData.data,{yes:function () {
+                        parent.layer.closeAll();
+                    }})
+            }
+        });
+
+    }
+</script>
+
+</body>
+</html>

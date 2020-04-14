@@ -19,4 +19,18 @@ public interface CourseCategoryMapper {
      * @return
      */
     public List<CourseCategory> findAllCourseCategory();
+
+    public CourseCategory findPriceByCourseName(String courseName);
+
+    public void insertCourseCategory(CourseCategory courseCategory);
+
+    public CourseCategory findCourseCategoryByName(String courseName);
+
+    public CourseCategory findCourseCategoryByGoodId(Integer goodsId);
+
+    public void updateCourseCategory(CourseCategory courseCategory);
+
+    public void editPhotoById(Integer id, String photoName);
+
+    public void deleteGoodsById(int id);
 }

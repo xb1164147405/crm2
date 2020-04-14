@@ -20,6 +20,11 @@ public class Result<T> implements Serializable {
      */
     private String message;
 
+    /**
+     * 返回数据
+     */
+    private T data;
+
     public Result(){
 
     }
@@ -30,10 +35,7 @@ public class Result<T> implements Serializable {
         this.data = data;
     }
 
-    /**
-     * 返回数据
-     */
-    private T data;
+
 
     public String getCode() {
         return code;

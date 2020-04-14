@@ -7,4 +7,62 @@
     <select id="findAllCourseCategory" resultType="courseCategory">
         select * from t_course_category;
     </select>
+
+    <!--查找价格-->
+    <select id="findPriceByCourseName" parameterType="string" resultType="courseCategory">
+        select * from t_course_category where course_name = #{courseName};
+    </select>
+
+    <insert id="insertCourseCategory" parameterType="courseCategory">
+        insert into t_course_category(
+        course_name,
+        publish_datetime,
+        price,
+        course_author,
+        photo_name,
+        inventory,
+        description)
+        values (
+        #{course_name},#{publish_datetime},
+        #{price},#{course_author},#{photo_name},
+        #{inventory},#{description});
+    </insert>
+
+    <select id="findCourseCategoryByName" parameterType="string" resultType="courseCategory">
+        select * from t_course_category where course_name = #{courseName};
+    </select>
+
+    <select id="findCourseCategoryByGoodId" parameterType="int" resultType="courseCategory">
+        select * from t_course_category where id = #{goodsId};
+    </select>
+
+    <update id="updateCourseCategory" parameterType="courseCategory">
+        update t_course_category
+        <set>
+            <if test="course_name != null and course_name != '' ">
+                course_name = #{course_name},
+            </if>
+            <if test="publish_datetime != null and publish_datetime != '' ">
+                publish_datetime = #{publish_datetime},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="description != null and description != '' ">
+                description = #{description},
+            </if>
+            <if test="course_author != null and course_author != '' ">
+                course_author = #{course_author}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <update id="editPhotoById">
+        update t_course_category set  photo_name = #{photoName} where id = #{id};
+    </update>
+
+    <delete id="deleteGoodsById" parameterType="int">
+        delete from t_course_category where id = #{id};
+    </delete>
 </mapper>

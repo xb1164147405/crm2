@@ -1,6 +1,7 @@
 package com.xb.crm.service;
 
 import com.xb.crm.model.CourseCategory;
+import com.xb.crm.model.Result;
 
 import java.util.List;
 
@@ -12,6 +13,18 @@ import java.util.List;
  */
 
 public interface ICourseCategoryService {
-    //TODO 课程类型的维护页面CRUD
+
     public List<CourseCategory> findAllCourseCategory();
+
+    public CourseCategory findPriceByCourseName(String courseName);
+
+    public Result saveCourseCategory(CourseCategory courseCategory);
+
+    public CourseCategory findCourseCategoryByGoodId(Integer goodsId);
+
+    public Result editPhotoById(Integer id, String photoName);
+
+    public Result editGoodsInfo(CourseCategory courseCategory);
+
+    public Result deleteGoodsById(int id);
 }
