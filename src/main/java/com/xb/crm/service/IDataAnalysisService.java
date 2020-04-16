@@ -1,5 +1,6 @@
 package com.xb.crm.service;
 
+import com.xb.crm.model.HobbyData;
 import com.xb.crm.model.MonthIncome;
 
 import java.util.List;
@@ -14,4 +15,6 @@ import java.util.List;
 public interface IDataAnalysisService {
 
     public List<MonthIncome> getMonthIncomes();
+
+    public List<HobbyData> getHobbyData();
 }

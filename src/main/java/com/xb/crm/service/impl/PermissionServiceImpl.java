@@ -5,6 +5,8 @@ import com.xb.crm.model.CURDResult;
 import com.xb.crm.model.Permission;
 import com.xb.crm.service.IPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -25,8 +27,13 @@ public class PermissionServiceImpl implements IPermissionService {
     private PermissionMapper permissionMapper;
 
     @Override
+    @Cacheable(cacheNames = "GUIMENU",key = "1234",unless = "#result.size()<=0")
     public List<Permission> findAllMenus() {
-        return permissionMapper.findAllMenus();
+        List<Permission> allMenus = permissionMapper.findAllMenus();
+        for (Permission allMenu : allMenus) {
+            System.out.println("SVC:"+allMenu);
+        }
+        return allMenus;
     }
 
     @Override
@@ -40,6 +47,7 @@ public class PermissionServiceImpl implements IPermissionService {
     }
 
     @Override
+    @CacheEvict(cacheNames = "GUIMENU",key = "1234")
     public CURDResult insert(Permission permission) {
         CURDResult curdResult = new CURDResult();
         //1:更改authorization_flag

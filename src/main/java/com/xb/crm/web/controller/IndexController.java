@@ -7,6 +7,7 @@ import com.xb.crm.service.IPermissionService;
 import com.xb.crm.service.IUserInfoService;
 import com.xb.crm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +35,7 @@ public class IndexController {
     private IUserInfoService userInfoService;
 
     @RequestMapping("/index")
+    //@Cacheable(cacheNames = "SYSTEMGUIMENU",key = "1234")
     public String index(Model model){
         //获取菜单
         List<Permission> menusList = permissionService.findAllMenus();

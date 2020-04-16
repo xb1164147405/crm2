@@ -23,27 +23,27 @@
         //获取每月收入数据
         layui.use('layer',function () {
             var $ = layui.jquery;
-            $.get("/orderreportform/monthIncome",function (respData) {
+            $.get("/orderreportform/hobbyData",function (respData) {
 
                 //声明日期和收入两个数组
-                var dates = new Array();
-                var incomes = new Array();
+                var hobbys = new Array();
+                var totals = new Array();
 
                 for( var i = 0;i<respData.length;i++){
-                    dates[i] = respData[i].date;
-                    incomes[i] = respData[i].income;
+                    hobbys[i] = respData[i].hobby;
+                    totals[i] = respData[i].total;
                 }
 
                 option = {
                     xAxis: {
                         type: 'category',
-                        data: dates
+                        data: hobbys
                     },
                     yAxis: {
                         type: 'value'
                     },
                     series: [{
-                        data: incomes,
+                        data: totals,
                         type: 'bar',
                         itemStyle : { normal: {label : {show: true}}}
                     }]

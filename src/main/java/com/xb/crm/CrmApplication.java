@@ -3,9 +3,11 @@ package com.xb.crm;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication(scanBasePackages = {"com.xb.crm"})
 //@ComponentScan(basePackages = {"com.xb.crm"})
+@EnableCaching
 @MapperScan(basePackages = {"com.xb.crm.mapper"})
 public class CrmApplication {
 

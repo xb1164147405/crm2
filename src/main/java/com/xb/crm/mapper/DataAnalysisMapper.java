@@ -1,5 +1,6 @@
 package com.xb.crm.mapper;
 
+import com.xb.crm.model.HobbyData;
 import com.xb.crm.model.MonthIncome;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,15 @@ import java.util.List;
 @Repository
 public interface DataAnalysisMapper {
 
+    /**
+     * 获取收入与时间数据
+     * @return
+     */
     public List<MonthIncome> getMonthIncomes();
+
+    /**
+     * 获取爱好统计数据
+     * @return
+     */
+    public List<HobbyData> getHobbyData();
 }

@@ -1,6 +1,7 @@
 package com.xb.crm.service.impl;
 
 import com.xb.crm.mapper.DataAnalysisMapper;
+import com.xb.crm.model.HobbyData;
 import com.xb.crm.model.MonthIncome;
 import com.xb.crm.service.IDataAnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class DataAnalysisServiceImpl implements IDataAnalysisService {
     @Override
     public List<MonthIncome> getMonthIncomes() {
         return dataAnalysisMapper.getMonthIncomes();
+    }
+
+    @Override
+    public List<HobbyData> getHobbyData() {
+        return dataAnalysisMapper.getHobbyData();
     }
 }

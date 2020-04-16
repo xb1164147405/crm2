@@ -1,5 +1,6 @@
 package com.xb.crm.web.controller;
 
+import com.xb.crm.model.HobbyData;
 import com.xb.crm.model.MonthIncome;
 import com.xb.crm.service.IDataAnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,19 @@ public class DataAnalysisController {
 
         return list;
 
+    }
+
+
+    @RequestMapping("/hobbyList")
+    public String hobbyList(){
+        return "dataanalysis/hobbyList";
+    }
+
+    @RequestMapping("/hobbyData")
+    @ResponseBody
+    public List<HobbyData> hobbyData(){
+        List<HobbyData> list = dataAnalysisService.getHobbyData();
+        return list;
     }
 
 }

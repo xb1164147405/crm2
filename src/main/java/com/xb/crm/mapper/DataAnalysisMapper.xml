@@ -12,4 +12,8 @@
       GROUP BY LEFT(order_date,7);
 
     </select>
+
+    <select id="getHobbyData" resultType="hobbyData">
+        select hobby,count(*) as total from sys_customer GROUP BY hobby;
+    </select>
 </mapper>
