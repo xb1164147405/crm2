@@ -99,12 +99,12 @@
         //监听行双击事件
         table.on('rowDouble(permissionTable)', function(obj){
             //obj 同上
-            var orderId = obj.data.order_id;
+            var permissionId = obj.data.id;
             parent.layer.open({
                 type: 2,//2跳转到页面
                 offset: 'auto',
-                title: '课程订单详情',
-                content: '/courseorder/detail?order_id=' + orderId,
+                title: '权限详情',
+                content: '/permission/detail?permissionId=' + permissionId,
                 area: ['1000px', '600px'],
                 btn: '关闭全部',
                 btnAlign: 'c',//表示按钮居中显示
@@ -138,8 +138,8 @@
                 parent.layer.open({
                     type: 2,//2跳转到页面
                     offset: 'auto',
-                    title: '编辑课程订单',
-                    content: '/courseorder/edit?order_id=' + orderId,
+                    title: '编辑权限',
+                    content: '/permission/edit?permissionId=' + permissionId,
                     area: ['1000px', '600px'],
                     btn: '关闭全部',
                     btnAlign: 'c',//表示按钮居中显示

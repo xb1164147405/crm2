@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 
 /**
- * @Description:
+ * @Description: <p>访问错误跳转</p>
  * @author: xiongbiao
  * @since: 2020/3/5 21:52
  * @history: 1.2020/3/5 created by xiongbiao
@@ -20,5 +20,8 @@ public class MyErrorPage implements ErrorPageRegistrar {
         //添加错误页面
         //无权限时跳转到403页面
         registry.addErrorPages(new ErrorPage(HttpStatus.FORBIDDEN,"/403"));
+
+        //访问路径不存在
+        registry.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND,"/404"));
     }
 }

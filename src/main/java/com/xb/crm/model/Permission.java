@@ -1,5 +1,6 @@
 package com.xb.crm.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  * @history: 1.2020/3/6 created by xiongbiao
  */
 
-public class Permission {
+public class Permission implements Serializable {
     /**
      * 编号ID
      */
@@ -107,6 +108,19 @@ public class Permission {
         this.subMenus = subMenus;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Permission{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", path='" + path + '\'' +
+//                ", authorization_flag='" + authorization_flag + '\'' +
+//                ", parent_id=" + parent_id +
+//                ", is_menu=" + is_menu +
+//                ", z_index=" + z_index +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "Permission{" +
@@ -117,6 +131,7 @@ public class Permission {
                 ", parent_id=" + parent_id +
                 ", is_menu=" + is_menu +
                 ", z_index=" + z_index +
+                ", subMenus=" + subMenus +
                 '}';
     }
 

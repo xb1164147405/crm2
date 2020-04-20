@@ -4,11 +4,13 @@ import com.xb.crm.mapper.CourseOrderMapper;
 import com.xb.crm.model.CourseOrder;
 import com.xb.crm.model.PageResult;
 import com.xb.crm.service.ICourseOrderService;
+import com.xb.crm.util.RedisUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +25,13 @@ import java.util.Map;
 @Transactional(rollbackFor = Exception.class)
 public class CourseOrderServiceImpl implements ICourseOrderService {
 
+    private final static Logger LOG = LoggerFactory.getLogger(CourseOrderServiceImpl.class);
+
     @Autowired
     private CourseOrderMapper courseOrderMapper;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Override
     public PageResult<CourseOrder> findPageResult(CourseOrder condition, int page, int pageSize) {
@@ -38,9 +45,9 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
         params.put("pageSize",pageSize);
         //获取总记录数据
         int totalCount = courseOrderMapper.findCountByMap(params);
-        result.setCount(totalCount);
         //获取查询的数据
         List<CourseOrder> list = courseOrderMapper.findListByMap(params);
+        result.setCount(totalCount);
         result.setData(list);
         return result;
     }
@@ -48,6 +55,8 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
     @Override
     public void save(CourseOrder order) {
         courseOrderMapper.insertOrder(order);
+        LOG.info("======订单数据保存成功并删除相关缓存======");
+        redisUtil.del("getMonthIncomes");
     }
 
     @Override
@@ -58,10 +67,14 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
     @Override
     public void deleteByOrderId(String order_id) {
         courseOrderMapper.deleteByOrderId(order_id);
+        LOG.info("======订单数据删除成功并删除相关缓存======");
+        redisUtil.del("getMonthIncomes");
     }
 
     @Override
     public void updateOrder(CourseOrder order) {
         courseOrderMapper.updateOrder(order);
+        LOG.info("======订单数据更新成功并删除相关缓存======");
+        redisUtil.del("getMonthIncomes");
     }
 }

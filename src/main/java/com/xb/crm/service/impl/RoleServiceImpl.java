@@ -1,10 +1,15 @@
 package com.xb.crm.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.xb.crm.mapper.RoleMapper;
 import com.xb.crm.model.CURDResult;
 import com.xb.crm.model.Role;
 import com.xb.crm.service.IRoleService;
+import com.xb.crm.util.RedisUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -22,12 +27,32 @@ import java.util.Objects;
 @Transactional(rollbackFor = Exception.class)
 public class RoleServiceImpl implements IRoleService {
 
+    private final static Logger LOG = LoggerFactory.getLogger(RoleServiceImpl.class);
+
     @Autowired
     private RoleMapper roleMapper;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
+    /**
+     * 缓存时间（秒）
+     */
+    @Value(value = "${spring.redis.cache.time}")
+    private long CACHE_TIME;
+
     @Override
     public List<Role> findAllRoles() {
-        return roleMapper.findAllRoles();
+        boolean hasKey = redisUtil.hasKey("findAllRoles");
+        if (hasKey){
+            LOG.info("======从redis缓存中读取所有角色信息======");
+            List<Role> allRolesList = redisUtil.getListObj("findAllRoles",Role.class);
+            return allRolesList;
+        }
+        LOG.info("======从数据库中获取所有角色数据======");
+        List<Role> allRolesList = roleMapper.findAllRoles();
+        redisUtil.set("findAllRoles", JSON.toJSONString(allRolesList),CACHE_TIME);
+        return allRolesList;
     }
 
     @Override
@@ -72,7 +97,8 @@ public class RoleServiceImpl implements IRoleService {
         if (!StringUtils.isEmpty(ids)){
             roleMapper.insertRolePermissionBatch(role.getId(),ids);
         }
-
+        LOG.info("======角色数据修改或插入成功并删除相关所有缓存======");
+        redisUtil.del("findAllRoles");
         return result;
     }
 
@@ -110,6 +136,8 @@ public class RoleServiceImpl implements IRoleService {
                 roleMapper.deletePermissionByPermissIdsBatch(permissionIds.toString());
             }
             roleMapper.deleteRoleByRoleId(Integer.valueOf(role_id));
+            LOG.info("======角色删除成功并删除相关所有缓存======");
+            redisUtil.del("findAllRoles");
         } catch (NumberFormatException e) {
             result.setSuccess(0);
             result.setMsg("删除角色失败：" + e);
