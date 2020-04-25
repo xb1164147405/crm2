@@ -114,6 +114,9 @@ public class CourseCategory {
         if (StringUtils.isEmpty(this.price)){
             return "商品价格不能为空。";
         }
+        if (StringUtils.isEmpty(this.publish_datetime)){
+            return "出版时间不能为空。";
+        }
         return null;
     }
 

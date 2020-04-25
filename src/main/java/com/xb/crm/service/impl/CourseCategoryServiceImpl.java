@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -113,8 +114,10 @@ public class CourseCategoryServiceImpl implements ICourseCategoryService {
         }
         //验证是否已存在该商品
         try {
+            CourseCategory oldGoods = courseCategoryMapper.findCourseCategoryByGoodId(courseCategory.getId());
             CourseCategory isExist = courseCategoryMapper.findCourseCategoryByName(courseCategory.getCourse_name());
-            if (!Objects.isNull(isExist)){
+            if (!Objects.isNull(isExist) &&
+                    !Objects.equals(oldGoods.getCourse_name(),isExist.getCourse_name())){
                 return ResultUtil.error("该商品名称已存在！");
             }
             courseCategoryMapper.updateCourseCategory(courseCategory);

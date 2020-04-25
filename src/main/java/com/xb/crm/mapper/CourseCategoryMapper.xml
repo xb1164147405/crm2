@@ -52,7 +52,10 @@
                 description = #{description},
             </if>
             <if test="course_author != null and course_author != '' ">
-                course_author = #{course_author}
+                course_author = #{course_author},
+            </if>
+            <if test="inventory != null and course_author != '' ">
+                inventory = #{inventory}
             </if>
         </set>
         where id = #{id};
