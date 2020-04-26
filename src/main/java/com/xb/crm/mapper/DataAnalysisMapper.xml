@@ -9,11 +9,18 @@
       COUNT(*) as  total,
       SUM(convert(course_price,decimal(18,2))) as income
       FROM t_course_order
-      GROUP BY LEFT(order_date,7);
-
+      GROUP BY LEFT(order_date,7) ORDER BY LEFT(order_date,7);
     </select>
 
     <select id="getHobbyData" resultType="hobbyData">
         select hobby,count(*) as total from sys_customer GROUP BY hobby;
+    </select>
+
+    <select id="getMapData" resultType="mapModel">
+        select
+        LEFT(address,2) as name,
+        COUNT(*) as value
+        from sys_customer
+        GROUP BY LEFT(address,2)
     </select>
 </mapper>

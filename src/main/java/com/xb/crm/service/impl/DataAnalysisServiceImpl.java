@@ -3,6 +3,7 @@ package com.xb.crm.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.xb.crm.mapper.DataAnalysisMapper;
 import com.xb.crm.model.HobbyData;
+import com.xb.crm.model.MapModel;
 import com.xb.crm.model.MonthIncome;
 import com.xb.crm.service.IDataAnalysisService;
 import com.xb.crm.util.RedisUtil;
@@ -66,5 +67,10 @@ public class DataAnalysisServiceImpl implements IDataAnalysisService {
         List<HobbyData> hobbyDataList = dataAnalysisMapper.getHobbyData();
         redisUtil.set("getHobbyData", JSON.toJSONString(hobbyDataList),CACHE_TIME);
         return hobbyDataList;
+    }
+
+    @Override
+    public List<MapModel> getMapData() {
+        return dataAnalysisMapper.getMapData();
     }
 }

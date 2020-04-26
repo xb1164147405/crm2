@@ -25,4 +25,18 @@ public interface ICourseOrderService {
     public void deleteByOrderId(String order_id);
 
     public void updateOrder(CourseOrder order);
+
+    public Long findCourseOrderTotal();
+
+    /**
+     * 获取销售总额
+     * @return
+     */
+    public Long findTotalSales();
+
+    /**
+     * 获取最近一个月的销售额度
+     * @return
+     */
+    public Long findMonthTotalSales();
 }

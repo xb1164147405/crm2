@@ -35,14 +35,24 @@
                 }
 
                 option = {
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    calculable : true,
+                    legend: {
+                        data:['爱好语言','人数']
+                    },
                     xAxis: {
                         type: 'category',
-                        data: hobbys
+                        data: hobbys,
+                        name: '爱好语言'
                     },
                     yAxis: {
-                        type: 'value'
+                        type: 'value',
+                        name: '人数'
                     },
                     series: [{
+                        name: '人数',
                         data: totals,
                         type: 'bar',
                         barWidth: 50,

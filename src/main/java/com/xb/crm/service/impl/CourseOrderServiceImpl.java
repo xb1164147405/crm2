@@ -77,4 +77,31 @@ public class CourseOrderServiceImpl implements ICourseOrderService {
         LOG.info("======订单数据更新成功并删除相关缓存======");
         redisUtil.del("getMonthIncomes");
     }
+
+    /**
+     * 获取订单总量
+     * @return
+     */
+    @Override
+    public Long findCourseOrderTotal() {
+        return courseOrderMapper.findCourseOrderTotal();
+    }
+
+    /**
+     * 获取总销售额
+     * @return
+     */
+    @Override
+    public Long findTotalSales() {
+        return courseOrderMapper.findTotalSales();
+    }
+
+    /**
+     * 获取最近一月的销售额度
+     * @return
+     */
+    @Override
+    public Long findMonthTotalSales() {
+        return courseOrderMapper.findMonthTotalSales();
+    }
 }

@@ -13,4 +13,6 @@ import java.util.List;
 
 public interface IStuInfoService {
     public List<Customer> findAllCustomer();
+
+    public Long findStuInfoTotal();
 }

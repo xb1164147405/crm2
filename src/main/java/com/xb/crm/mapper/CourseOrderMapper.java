@@ -26,4 +26,18 @@ public interface CourseOrderMapper {
     public void deleteByOrderId(String order_id);
 
     public void updateOrder(CourseOrder order);
+
+    public Long findCourseOrderTotal();
+
+    /**
+     * 获取总销售额
+     * @return
+     */
+    public Long findTotalSales();
+
+    /**
+     * 获取最近一月的销售额
+     * @return
+     */
+    public Long findMonthTotalSales();
 }

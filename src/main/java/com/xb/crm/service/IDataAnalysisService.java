@@ -1,6 +1,7 @@
 package com.xb.crm.service;
 
 import com.xb.crm.model.HobbyData;
+import com.xb.crm.model.MapModel;
 import com.xb.crm.model.MonthIncome;
 
 import java.util.List;
@@ -17,4 +18,10 @@ public interface IDataAnalysisService {
     public List<MonthIncome> getMonthIncomes();
 
     public List<HobbyData> getHobbyData();
+
+    /**
+     * 获取地图分布数据
+     * @return
+     */
+    public List<MapModel> getMapData();
 }

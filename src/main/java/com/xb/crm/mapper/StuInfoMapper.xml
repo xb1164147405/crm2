@@ -6,4 +6,8 @@
     <select id="findAllCustomer" resultType="customer">
         select * from sys_customer;
     </select>
+
+    <select id="findStuInfoTotal" resultType="long">
+        select count(*) from sys_customer;
+    </select>
 </mapper>

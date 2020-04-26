@@ -24,7 +24,7 @@
         layui.use('layer',function () {
             var $ = layui.jquery;
             $.get("/orderreportform/monthIncome",function (respData) {
-
+                console.log(respData)
                 //声明日期和收入两个数组
                 var dates = new Array();
                 var incomes = new Array();
@@ -35,14 +35,25 @@
                 }
 
                 option = {
+
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    calculable : true,
+                    legend: {
+                        data:['时间','收入(RMB)']
+                    },
                     xAxis: {
                         type: 'category',
-                        data: dates
+                        data: dates,
+                        name: '时间'
                     },
                     yAxis: {
-                        type: 'value'
+                        type: 'value',
+                        name: '收入(RMB)'
                     },
                     series: [{
+                        name: '收入(RMB)',
                         data: incomes,
                         type: 'bar',
                         itemStyle : { normal: {label : {show: true}}}

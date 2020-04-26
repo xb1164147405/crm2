@@ -27,4 +27,9 @@ public class StuInfoServiceImpl implements IStuInfoService {
     public List<Customer> findAllCustomer() {
         return stuInfoMapper.findAllCustomer();
     }
+
+    @Override
+    public Long findStuInfoTotal() {
+        return stuInfoMapper.findStuInfoTotal();
+    }
 }

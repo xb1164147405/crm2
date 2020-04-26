@@ -1,6 +1,7 @@
 package com.xb.crm.mapper;
 
 import com.xb.crm.model.HobbyData;
+import com.xb.crm.model.MapModel;
 import com.xb.crm.model.MonthIncome;
 import org.springframework.stereotype.Repository;
 
@@ -26,4 +27,10 @@ public interface DataAnalysisMapper {
      * @return
      */
     public List<HobbyData> getHobbyData();
+
+    /**
+     * 获取地图分布数据
+     * @return
+     */
+    public List<MapModel> getMapData();
 }

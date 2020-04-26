@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>控制台</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" th:href="@{/layuiadmin/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuiadmin/style/admin.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuiadmin/style/template.css}" media="all">
+    <script type="text/javascript" th:src="@{/zTree/js/jquery-1.4.4.min.js}"></script>
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    订单总量
+                    <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
+                </div>
+                <div class="layui-card-body layuiadmin-card-list">
+                    <p class="layuiadmin-big-font" th:text="${courseOrderTotal}"></p>
+                    <p>
+                        订单总数
+                        <span class="layuiadmin-span-color"><i class="layui-inline layui-icon layui-icon-flag"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    客户总数
+                    <span class="layui-badge layui-bg-cyan layuiadmin-badge">总</span>
+                </div>
+                <div class="layui-card-body layuiadmin-card-list">
+                    <p class="layuiadmin-big-font" th:text="${stuInfoTotal}"></p>
+                    <p>
+                        客户数
+                        <span class="layuiadmin-span-color"><i class="layui-inline layui-icon layui-icon-user"></i></span>
+                        <!--<span class="layuiadmin-span-color">10% <i class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>-->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    总销售额(RMB)
+                    <span class="layui-badge layui-bg-green layuiadmin-badge">总</span>
+                </div>
+                <div class="layui-card-body layuiadmin-card-list">
+
+                    <p class="layuiadmin-big-font" th:text="${totalSales}"></p>
+                    <p>
+                        总收入
+                        <span class="layuiadmin-span-color"><i class="layui-inline layui-icon layui-icon-dollar"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    最近一个月销售额度(RMB)
+                    <span class="layui-badge layui-bg-orange layuiadmin-badge">月</span>
+                </div>
+                <div class="layui-card-body layuiadmin-card-list">
+
+                    <p class="layuiadmin-big-font" th:text="${monthTotalSales}"></p>
+                    <p>
+                        最近一个月收入
+                        <span class="layuiadmin-span-color"><i class="layui-inline layui-icon layui-icon-dollar"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-sm12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">地图</div>
+                        <div class="layui-card-body">
+
+                            <div class="layui-carousel layadmin-carousel layadmin-dataview" data-anim="fade" lay-filter="LAY-index-plat">
+                                <div carousel-item id="LAY-index-plat">
+                                    <div><i class="layui-icon layui-icon-loading1 layadmin-loading"></i></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script th:src="@{/layuiadmin/layui/layui.js}"></script>
+<script type="text/javascript">
+    layui.config({
+        base: '../../layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'sample','carousel', 'echarts','senior'],function () {
+
+        var carousel = layui.carousel
+            ,echarts = layui.echarts;
+
+        var mapData = [];
+        $.ajax({
+            url: "/console/getMapData",
+            async: false, //改为同步方式
+            type: "POST",
+            success: function (data) {
+                mapData = data;
+            },
+            dataType:"json"
+        });
+        console.log(mapData)
+        var echplat = [], plat = [
+            {
+                title : {
+                    text: '顾客地方分布图（人数）',
+                    subtext: '数据来系统数据库统计'
+                },
+                tooltip : {
+                    trigger: 'item'
+                },
+                dataRange: {
+                    orient: 'horizontal',
+                    min: 0,
+                    max: 55000,
+                    text:['高','低'],           // 文本，默认为数值文本
+                    splitNumber:0
+                },
+                series : [
+                    {
+                        name: '顾客地方分布图（人数）',
+                        type: 'map',
+                        mapType: 'china',
+                        mapLocation: {
+                            x: 'center'
+                        },
+                        selectedMode : 'multiple',
+                        itemStyle:{
+                            normal:{label:{show:true}},
+                            emphasis:{label:{show:true}}
+                        },
+                        data:mapData
+                        /*[
+                            {name:'西藏', value:605.83},
+                            {name:'青海', value:1670.44},
+                            {name:'宁夏', value:2102.21},
+                            {name:'海南', value:2522.66},
+                            {name:'甘肃', value:5020.37},
+                            {name:'贵州', value:5701.84},
+                            {name:'新疆', value:6610.05},
+                            {name:'云南', value:8893.12},
+                            {name:'重庆', value:10011.37},
+                            {name:'吉林', value:10568.83},
+                            {name:'山西', value:11237.55},
+                            {name:'天津', value:11307.28},
+                            {name:'江西', value:11702.82},
+                            {name:'广西', value:11720.87},
+                            {name:'陕西', value:12512.3},
+                            {name:'黑龙江', value:12582},
+                            {name:'内蒙古', value:14359.88},
+                            {name:'安徽', value:15300.65},
+                            {name:'北京', value:16251.93, selected:true},
+                            {name:'福建', value:17560.18},
+                            {name:'上海', value:19195.69, selected:true},
+                            {name:'湖北', value:19632.26},
+                            {name:'湖南', value:19669.56},
+                            {name:'四川', value:21026.68},
+                            {name:'辽宁', value:22226.7},
+                            {name:'河北', value:24515.76},
+                            {name:'河南', value:26931.03},
+                            {name:'浙江', value:32318.85},
+                            {name:'山东', value:45361.85},
+                            {name:'江苏', value:49110.27},
+                            {name:'广东', value:53210.28, selected:true}
+                        ]*/
+                    }
+                ]
+            }
+        ]
+            ,elemplat = $('#LAY-index-plat').children('div')
+            ,renderplat = function(index){
+            echplat[index] = echarts.init(elemplat[index], layui.echartsTheme);
+            echplat[index].setOption(plat[index]);
+            window.onresize = echplat[index].resize;
+        };
+        if(!elemplat[0]) return;
+        renderplat(0);
+    });
+</script>
+</body>
+</html>

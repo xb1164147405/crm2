@@ -57,4 +57,21 @@
        WHERE
           order_id = #{order_id}
     </update>
+
+    <select id="findCourseOrderTotal" resultType="long">
+        select count(*) from t_course_order;
+    </select>
+
+    <!--获取总销售额-->
+    <select id="findTotalSales" resultType="long">
+        select sum(course_price) from t_course_order;
+    </select>
+
+    <!--获取最近一个月的销售额度-->
+    <select id="findMonthTotalSales" resultType="long">
+        select SUM(course_price)
+        from t_course_order
+        where YEAR(order_date) = YEAR(NOW()) and MONTH(NOW()) = MONTH(order_date)
+        GROUP BY MONTH(order_date);
+    </select>
 </mapper>
