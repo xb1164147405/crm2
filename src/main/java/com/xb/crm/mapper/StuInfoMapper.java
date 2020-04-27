@@ -19,4 +19,6 @@ public interface StuInfoMapper {
     public List<Customer> findAllCustomer();
 
     public Long findStuInfoTotal();
+
+    public void insertCustomer(Customer customer);
 }

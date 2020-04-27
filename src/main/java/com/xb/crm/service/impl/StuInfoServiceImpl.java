@@ -32,4 +32,9 @@ public class StuInfoServiceImpl implements IStuInfoService {
     public Long findStuInfoTotal() {
         return stuInfoMapper.findStuInfoTotal();
     }
+
+    @Override
+    public void insert(Customer customer) {
+        stuInfoMapper.insertCustomer(customer);
+    }
 }

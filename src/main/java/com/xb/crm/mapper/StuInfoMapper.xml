@@ -10,4 +10,10 @@
     <select id="findStuInfoTotal" resultType="long">
         select count(*) from sys_customer;
     </select>
+
+    <insert id="insertCustomer" parameterType="customer">
+        insert into
+        sys_customer(name,age,wechat_name,wechat_no,qq_no,tel,address,hobby,occupation)
+        values(#{name},#{age},#{wechat_name},#{wechat_no},#{qq_no},#{tel},#{address},#{hobby},#{occupation});
+    </insert>
 </mapper>

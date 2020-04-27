@@ -45,6 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("bootstrap/**","/dropzone/**","/img/**","/login/**","/js/**","/css/**","/images/*","/fonts/**","/**/*.png","/**/*.jpg").permitAll()
                 /*代表login不需要拦截*/
                 .antMatchers("/login").permitAll()
+                /*公共开放接口放行*/
+                .antMatchers("/common/addOrder").permitAll()
                 /*设置所有访问路径都需要请求认证*/
                 .antMatchers("/**").fullyAuthenticated()
                 .and()

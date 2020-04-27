@@ -15,4 +15,6 @@ public interface IStuInfoService {
     public List<Customer> findAllCustomer();
 
     public Long findStuInfoTotal();
+
+    public void insert(Customer customer);
 }
