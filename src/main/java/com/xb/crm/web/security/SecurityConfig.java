@@ -58,7 +58,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 /*登录成功后跳转至指定页面*/
                 .successForwardUrl("/index");
                 /*设置自己的登录错误页面*/
-//                .failureUrl("/login-error");
 
     }
 /*加了这个方法就登录就无法跳转到首页*/

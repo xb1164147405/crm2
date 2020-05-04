@@ -18,16 +18,9 @@
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">客户管理后台</div>
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <!--<ul class="layui-nav layui-layout-left">-->
-            <!--<li class="layui-nav-item"><a th:href="@{/goods/list}" target="content_iFrm">商品管理</a></li>-->
-        <!--</ul>-->
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <!--<img th:src="@{/img/head.jpg}" class="layui-nav-img">-->
-                    <!--穿凉拖的熊-->
-                    <!--<img th:src="@{/img/head.jpg}" class="layui-nav-img" th:text="${username}">-->
                     <img th:src="@{'/upload/'+${headPhoto.file_name}}" class="layui-nav-img" th:text="${username}">
                 </a>
                 <dl class="layui-nav-child">
@@ -40,7 +33,6 @@
 
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li th:class="${menuState.index == 0 ? 'layui-nav-item layui-nav-itemed' : 'layui-nav-item'}" th:each="menu,menuState: ${menusList}">
                     <a class="" href="javascript:;" th:text="${menu.name}"></a>
@@ -49,25 +41,13 @@
                                 th:href="${subMenu.path}"
                                 target="content_iFrm"
                                 th:text="${subMenu.name}"></a></dd>
-                        <!--<dd><a href="/stuinfo/list" target="content_iFrm">学员信息</a></dd>-->
                     </dl>
                 </li>
-                <!--<li class="layui-nav-item">-->
-                <!--<a href="javascript:;">数据分析</a>-->
-                <!--<dl class="layui-nav-child">-->
-                <!--<dd><a href="/dataanalysis/income" target="content_iFrm">收入报表</a></dd>-->
-                <!--<dd><a href="javascript:;">学员分布图</a></dd>-->
-                <!--</dl>-->
-                <!--</li>-->
-                <!--<li class="layui-nav-item"><a href="">发布计划</a></li>-->
-                <!--<li class="layui-nav-item"><a href="">点点滴滴</a></li>-->
             </ul>
         </div>
     </div>
 
     <div class="layui-body">
-        <!--<iframe name="content_iFrm" frameborder=”no” border=”0″ class="larry-iframe"
-                style="width: 100%;height: 100%;" src="/courseorder/list"></iframe>-->
         <iframe name="content_iFrm" frameborder=”no” border=”0″ class="larry-iframe"
                 style="width: 100%;height: 100%;" src="/console/list"></iframe>
     </div>

@@ -35,7 +35,6 @@ public class IndexController {
     private IUserInfoService userInfoService;
 
     @RequestMapping("/index")
-    //@Cacheable(cacheNames = "SYSTEMGUIMENU",key = "1234")
     public String index(Model model){
         //获取菜单
         List<Permission> menusList = permissionService.findAllMenus();
